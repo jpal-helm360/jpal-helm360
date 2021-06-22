@@ -1,9 +1,7 @@
-package com.qa.test.stepDef.pageTests;
+package com.qa.test.stepDef;
 
 import com.qa.pages.CommonPage;
 import com.qa.pages.CostEntryPage;
-import com.qa.test.stepDef.hooks.ServiceHooks;
-import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -15,15 +13,8 @@ public class CostEntry_SD {
 	CostEntryPage cePage;
 
 	public CostEntry_SD() {
-		System.out.println("CostEntry_SD --------------------1");
-		new ServiceHooks();
-		System.out.println("CostEntry_SD --------------------2");
-	}
-
-	@Before(order = 1, value = "@CostEntry")
-	public void setUp() {
-		System.out.println("setUp --------------------");
 		cPage = new CommonPage();
+		cePage = new CostEntryPage();
 		cPage.clickSearchProcess();
 	}
 
@@ -38,8 +29,7 @@ public class CostEntry_SD {
 	}
 
 	@Then("^CE: Enter Cost Type \"([^\"]*)\"$")
-	public void ce_Enter_Cost_Type(String costType) {
-		cePage = new CostEntryPage();
+	public void ce_Enter_Cost_Type(String costType) {	
 		cePage.enterCostType(costType);
 	}
 
@@ -55,12 +45,17 @@ public class CostEntry_SD {
 
 	@Then("^CE: Enter Quantity as \"([^\"]*)\"$")
 	public void ce_Enter_Quantity_as(String quantity) {
-		cePage.enterTimekeeper(quantity);
+		cePage.enterQuantity(quantity);
 	}
 
 	@Then("^CE: Enter Work Currency as \"([^\"]*)\"$")
 	public void ce_Enter_Work_Currency_as(String currency) {
 		cePage.enterCurrency(currency);
+	}
+	
+	@Then("^CE: Enter Work Rate as \"([^\"]*)\"$")
+	public void ce_Enter_Work_Rate_as(String workRate) {
+		cePage.enterWorkRate(workRate);
 	}
 
 	@Then("^CE: Enter Narrative as \"([^\"]*)\"$")
@@ -76,7 +71,7 @@ public class CostEntry_SD {
 	@Then("^CE: Validate Home Page is Displayed$")
 	public void ce_Validate_Home_Page_is_Displayed() {
 		String home_page_text = cPage.getText();
-		System.out.println("home_page_text: " + home_page_text);
+		//System.out.println("home_page_text: " + home_page_text);
 	}
 
 }

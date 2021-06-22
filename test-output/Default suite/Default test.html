@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Mon Jun 21 15:47:49 IST 2021</td>
+<td>Started on:</td><td>Tue Jun 22 15:24:45 IST 2021</td>
 </tr>
-<tr><td>Total time:</td><td>50 seconds (50536 ms)</td>
+<tr><td>Total time:</td><td>75 seconds (75565 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,7 +76,7 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='com.qa.test.runner.TestRunner.runCukes()'><b>runCukes</b><br>Test class: com.qa.test.runner.TestRunner</td>
-<td><div><pre>cucumber.runtime.CucumberException: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for com.qa.seleniumLib.SeleniumUtil$1@3b8ee898 (tried for 15 second(s) with 100 milliseconds interval)
+<td><div><pre>cucumber.runtime.CucumberException: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for com.qa.seleniumLib.SeleniumUtil$1@7c891ba7 (tried for 15 second(s) with 100 milliseconds interval)
 	at cucumber.api.testng.TestNGCucumberRunner.runCukes(TestNGCucumberRunner.java:57)
 	at com.qa.test.runner.TestRunner.runCukes(TestRunner.java:27)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -104,38 +104,23 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for com.qa.seleniumLib.SeleniumUtil$1@3b8ee898 (tried for 15 second(s) with 100 milliseconds interval)
+Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for com.qa.seleniumLib.SeleniumUtil$1@7c891ba7 (tried for 15 second(s) with 100 milliseconds interval)
 	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:304)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-	at com.qa.seleniumLib.SeleniumUtil.fluentWait(SeleniumUtil.java:78)
-	at com.qa.seleniumLib.SeleniumUtil.doClick(SeleniumUtil.java:61)
-	at com.qa.pages.CommonPage.clickSearchProcess(CommonPage.java:33)
-	at com.qa.test.stepDef.pageTests.CostEntry_SD.setUp(CostEntry_SD.java:27)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at cucumber.runtime.Utils$1.call(Utils.java:40)
-	at cucumber.runtime.Timeout.timeout(Timeout.java:16)
-	at cucumber.runtime.Utils.invoke(Utils.java:34)
-	at cucumber.runtime.java.JavaHookDefinition.execute(JavaHookDefinition.java:60)
-	at cucumber.runtime.Runtime.runHookIfTagsMatch(Runtime.java:224)
-	at cucumber.runtime.Runtime.runHooks(Runtime.java:212)
-	at cucumber.runtime.Runtime.runBeforeHooks(Runtime.java:202)
-	at cucumber.runtime.model.CucumberScenario.run(CucumberScenario.java:40)
-	at cucumber.runtime.model.CucumberScenarioOutline.run(CucumberScenarioOutline.java:46)
-	at cucumber.runtime.model.CucumberFeature.run(CucumberFeature.java:165)
-	at cucumber.api.testng.TestNGCucumberRunner.runCukes(TestNGCucumberRunner.java:50)
-	... 26 more
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//div[@class=&apos;search-button&apos;]&quot;}
-  (Session info: chrome=91.0.4472.106)
+	at com.qa.seleniumLib.SeleniumUtil.fluentWait(SeleniumUtil.java:95)
+	at com.qa.seleniumLib.SeleniumUtil.getText(SeleniumUtil.java:157)
+	at com.qa.pages.CommonPage.getText(CommonPage.java:48)
+	at com.qa.test.stepDef.CostEntry_SD.ce_Validate_Home_Page_is_Displayed(CostEntry_SD.java:73)
+	at ?.Then CE: Validate Home Page is Displayed(CostEntry.feature:16)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//span[text()=&apos;Home Page&apos;]&quot;}
+  (Session info: chrome=91.0.4472.114)
 For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;INNOPHLTXP3E122&apos;, ip: &apos;192.168.43.43&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_251&apos;
+System info: host: &apos;INNOPHLTXP3E122&apos;, ip: &apos;10.81.234.26&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_251&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 91.0.4472.106, chrome: {chromedriverVersion: 91.0.4472.101 (af52a90bf870..., userDataDir: C:\Users\jpal\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:57500}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 7ddccee180d23f38eb446610d9762ffe
-*** Element info: {Using=xpath, value=//div[@class=&apos;search-button&apos;]}
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 91.0.4472.114, chrome: {chromedriverVersion: 91.0.4472.101 (af52a90bf870..., userDataDir: C:\Users\jpal\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:58737}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 5c8ca31f974973d119aaeac73c9d5852
+*** Element info: {Using=xpath, value=//span[text()=&apos;Home Page&apos;]}
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
@@ -153,12 +138,57 @@ Session ID: 7ddccee180d23f38eb446610d9762ffe
 	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
 	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
 	at com.sun.proxy.$Proxy18.isDisplayed(Unknown Source)
-	at com.qa.seleniumLib.SeleniumUtil$1.apply(SeleniumUtil.java:80)
+	at com.qa.seleniumLib.SeleniumUtil$1.apply(SeleniumUtil.java:97)
 	at com.qa.seleniumLib.SeleniumUtil$1.apply(SeleniumUtil.java:1)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
-	... 45 more
-</pre></div><a href='#' onClick='toggleBox("stack-trace1953290071", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1953290071'><pre>cucumber.runtime.CucumberException: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for com.qa.seleniumLib.SeleniumUtil$1@3b8ee898 (tried for 15 second(s) with 100 milliseconds interval)
+	at com.qa.seleniumLib.SeleniumUtil.fluentWait(SeleniumUtil.java:95)
+	at com.qa.seleniumLib.SeleniumUtil.getText(SeleniumUtil.java:157)
+	at com.qa.pages.CommonPage.getText(CommonPage.java:48)
+	at com.qa.test.stepDef.CostEntry_SD.ce_Validate_Home_Page_is_Displayed(CostEntry_SD.java:73)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at cucumber.runtime.Utils$1.call(Utils.java:40)
+	at cucumber.runtime.Timeout.timeout(Timeout.java:16)
+	at cucumber.runtime.Utils.invoke(Utils.java:34)
+	at cucumber.runtime.java.JavaStepDefinition.execute(JavaStepDefinition.java:38)
+	at cucumber.runtime.StepDefinitionMatch.runStep(StepDefinitionMatch.java:37)
+	at cucumber.runtime.Runtime.runStep(Runtime.java:300)
+	at cucumber.runtime.model.StepContainer.runStep(StepContainer.java:44)
+	at cucumber.runtime.model.StepContainer.runSteps(StepContainer.java:39)
+	at cucumber.runtime.model.CucumberScenario.run(CucumberScenario.java:44)
+	at cucumber.runtime.model.CucumberScenarioOutline.run(CucumberScenarioOutline.java:46)
+	at cucumber.runtime.model.CucumberFeature.run(CucumberFeature.java:165)
+	at cucumber.api.testng.TestNGCucumberRunner.runCukes(TestNGCucumberRunner.java:50)
+	at com.qa.test.runner.TestRunner.runCukes(TestRunner.java:27)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1905548224", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1905548224'><pre>cucumber.runtime.CucumberException: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for com.qa.seleniumLib.SeleniumUtil$1@7c891ba7 (tried for 15 second(s) with 100 milliseconds interval)
 	at cucumber.api.testng.TestNGCucumberRunner.runCukes(TestNGCucumberRunner.java:57)
 	at com.qa.test.runner.TestRunner.runCukes(TestRunner.java:27)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -186,38 +216,23 @@ Session ID: 7ddccee180d23f38eb446610d9762ffe
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for com.qa.seleniumLib.SeleniumUtil$1@3b8ee898 (tried for 15 second(s) with 100 milliseconds interval)
+Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for com.qa.seleniumLib.SeleniumUtil$1@7c891ba7 (tried for 15 second(s) with 100 milliseconds interval)
 	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:304)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-	at com.qa.seleniumLib.SeleniumUtil.fluentWait(SeleniumUtil.java:78)
-	at com.qa.seleniumLib.SeleniumUtil.doClick(SeleniumUtil.java:61)
-	at com.qa.pages.CommonPage.clickSearchProcess(CommonPage.java:33)
-	at com.qa.test.stepDef.pageTests.CostEntry_SD.setUp(CostEntry_SD.java:27)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at cucumber.runtime.Utils$1.call(Utils.java:40)
-	at cucumber.runtime.Timeout.timeout(Timeout.java:16)
-	at cucumber.runtime.Utils.invoke(Utils.java:34)
-	at cucumber.runtime.java.JavaHookDefinition.execute(JavaHookDefinition.java:60)
-	at cucumber.runtime.Runtime.runHookIfTagsMatch(Runtime.java:224)
-	at cucumber.runtime.Runtime.runHooks(Runtime.java:212)
-	at cucumber.runtime.Runtime.runBeforeHooks(Runtime.java:202)
-	at cucumber.runtime.model.CucumberScenario.run(CucumberScenario.java:40)
-	at cucumber.runtime.model.CucumberScenarioOutline.run(CucumberScenarioOutline.java:46)
-	at cucumber.runtime.model.CucumberFeature.run(CucumberFeature.java:165)
-	at cucumber.api.testng.TestNGCucumberRunner.runCukes(TestNGCucumberRunner.java:50)
-	... 26 more
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//div[@class=&apos;search-button&apos;]&quot;}
-  (Session info: chrome=91.0.4472.106)
+	at com.qa.seleniumLib.SeleniumUtil.fluentWait(SeleniumUtil.java:95)
+	at com.qa.seleniumLib.SeleniumUtil.getText(SeleniumUtil.java:157)
+	at com.qa.pages.CommonPage.getText(CommonPage.java:48)
+	at com.qa.test.stepDef.CostEntry_SD.ce_Validate_Home_Page_is_Displayed(CostEntry_SD.java:73)
+	at ?.Then CE: Validate Home Page is Displayed(CostEntry.feature:16)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//span[text()=&apos;Home Page&apos;]&quot;}
+  (Session info: chrome=91.0.4472.114)
 For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;INNOPHLTXP3E122&apos;, ip: &apos;192.168.43.43&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_251&apos;
+System info: host: &apos;INNOPHLTXP3E122&apos;, ip: &apos;10.81.234.26&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_251&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 91.0.4472.106, chrome: {chromedriverVersion: 91.0.4472.101 (af52a90bf870..., userDataDir: C:\Users\jpal\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:57500}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 7ddccee180d23f38eb446610d9762ffe
-*** Element info: {Using=xpath, value=//div[@class=&apos;search-button&apos;]}
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 91.0.4472.114, chrome: {chromedriverVersion: 91.0.4472.101 (af52a90bf870..., userDataDir: C:\Users\jpal\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:58737}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 5c8ca31f974973d119aaeac73c9d5852
+*** Element info: {Using=xpath, value=//span[text()=&apos;Home Page&apos;]}
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
@@ -235,12 +250,57 @@ Session ID: 7ddccee180d23f38eb446610d9762ffe
 	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
 	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
 	at com.sun.proxy.$Proxy18.isDisplayed(Unknown Source)
-	at com.qa.seleniumLib.SeleniumUtil$1.apply(SeleniumUtil.java:80)
+	at com.qa.seleniumLib.SeleniumUtil$1.apply(SeleniumUtil.java:97)
 	at com.qa.seleniumLib.SeleniumUtil$1.apply(SeleniumUtil.java:1)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
-	... 45 more
+	at com.qa.seleniumLib.SeleniumUtil.fluentWait(SeleniumUtil.java:95)
+	at com.qa.seleniumLib.SeleniumUtil.getText(SeleniumUtil.java:157)
+	at com.qa.pages.CommonPage.getText(CommonPage.java:48)
+	at com.qa.test.stepDef.CostEntry_SD.ce_Validate_Home_Page_is_Displayed(CostEntry_SD.java:73)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at cucumber.runtime.Utils$1.call(Utils.java:40)
+	at cucumber.runtime.Timeout.timeout(Timeout.java:16)
+	at cucumber.runtime.Utils.invoke(Utils.java:34)
+	at cucumber.runtime.java.JavaStepDefinition.execute(JavaStepDefinition.java:38)
+	at cucumber.runtime.StepDefinitionMatch.runStep(StepDefinitionMatch.java:37)
+	at cucumber.runtime.Runtime.runStep(Runtime.java:300)
+	at cucumber.runtime.model.StepContainer.runStep(StepContainer.java:44)
+	at cucumber.runtime.model.StepContainer.runSteps(StepContainer.java:39)
+	at cucumber.runtime.model.CucumberScenario.run(CucumberScenario.java:44)
+	at cucumber.runtime.model.CucumberScenarioOutline.run(CucumberScenarioOutline.java:46)
+	at cucumber.runtime.model.CucumberFeature.run(CucumberFeature.java:165)
+	at cucumber.api.testng.TestNGCucumberRunner.runCukes(TestNGCucumberRunner.java:50)
+	at com.qa.test.runner.TestRunner.runCukes(TestRunner.java:27)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>50</td>
+<td>75</td>
 <td>com.qa.test.runner.TestRunner@553f17c</td></tr>
 </table><p>
 </body>

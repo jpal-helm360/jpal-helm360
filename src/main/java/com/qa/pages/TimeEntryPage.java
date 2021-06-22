@@ -1,7 +1,9 @@
 package com.qa.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import com.qa.base.BaseTest;
@@ -41,7 +43,8 @@ public class TimeEntryPage extends BaseTest {
 	@FindBy(xpath = "//span[text()='Narrative']//ancestor::e3e-bound-input//div[@class='ql-editor ql-blank']")
 	private WebElement narrativeTxtBx;
 	
-	@FindBy(xpath = "//span[text()=' Post All ']")
+	//@FindBy(xpath = "//span[text()=' Post All ']")
+	@FindBy(css="button[data-automation-id='Post']")
 	private WebElement postAllBtn;
 	
 	@FindBy(xpath = "//span[text()='Home Page']")
@@ -101,7 +104,16 @@ public class TimeEntryPage extends BaseTest {
 	}
 
 	public void ClickPostAll() {
-		sUtil.doClick(postAllBtn);
+		//sUtil.doClick(postAllBtn);
+		///sUtil.jsClick(postAllBtn);
+		//sUtil.jsClick(postAllBtn);
+		//sUtil.doubleClick(postAllBtn);
+		//sUtil.submit(postAllBtn);
+		sUtil.iSleep();
+		Actions actions = new Actions(driver);
+		actions.moveToElement(driver.findElement(By.cssSelector("button[data-automation-id='Post']")));
+		//actions.click().build().perform();
+		actions.doubleClick().build().perform();
 	}
 	
 	public String getText() {

@@ -1,4 +1,4 @@
-package com.qa.test.stepDef.hooks;
+package com.qa.test.stepDef;
 
 
 import java.io.IOException;
@@ -22,13 +22,26 @@ public class ServiceHooks extends com.qa.base.BaseTest {
 	public void setUp(Scenario scenario) {
 		this.scenario = scenario;
 		System.out.println("Scenario is ---> " + this.scenario.getName());
-		doLogin();
-		new SeleniumUtil().iSleep();
-		System.out.println("Login Done");
+		
+	}
+	
+	@Before(order = 1)
+	public void doLogin(Scenario scenario) {
+		System.out.println("Before 1");
+		driver=getDriver();
+		driver.get(TestData.getURL());
+		try {
+			//new SeleniumUtil().iSleep();
+			Thread.sleep(7000);
+			Runtime.getRuntime().exec(System.getProperty("user.dir") + "/src/test/resources/Autoit/3EAuthencation.exe");
+		} catch (IOException | InterruptedException e) {
+			e.printStackTrace();
+		} 
 	}
 
-	@After
+	@After(order=1)
 	public void quitDriver(Scenario scenario) throws IOException {
+		System.out.println("After 1");
 		this.scenario = scenario;
 		String scenarioName = scenario.getName();
 		if (scenario.isFailed()) {
@@ -50,6 +63,11 @@ public class ServiceHooks extends com.qa.base.BaseTest {
 		Reporter.setSystemInfo("Java-Version", "1.8.0_151");
 		Reporter.setSystemInfo("URL", TestData.getURL());
 		Reporter.getExtentReport();
+	}
+	
+	@After(order=0)
+	public void teardown() {
+		System.out.println("After 0");
 		//driver.quit();
 	}
 }

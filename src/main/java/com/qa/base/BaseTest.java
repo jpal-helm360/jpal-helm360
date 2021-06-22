@@ -28,7 +28,7 @@ public class BaseTest {
 		return driver;
 	}
 		
-	public void doLogin() {
+	/*public void doLogin() {
 		driver=getDriver();
 		driver.get(TestData.getURL());
 		try {
@@ -37,6 +37,6 @@ public class BaseTest {
 		} catch (IOException | InterruptedException e) {
 			e.printStackTrace();
 		}
-	}
+	}*/
 	
 }
