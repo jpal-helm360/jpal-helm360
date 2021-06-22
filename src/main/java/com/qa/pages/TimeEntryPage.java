@@ -46,8 +46,6 @@ public class TimeEntryPage extends BaseTest {
 	
 	@FindBy(xpath = "//span[text()='Home Page']")
 	private WebElement homeText;
-	
-	
 
 	public TimeEntryPage() {
 		PageFactory.initElements(driver, this);

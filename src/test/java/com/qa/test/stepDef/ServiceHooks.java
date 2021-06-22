@@ -1,4 +1,4 @@
-package com.qa.test.stepDef.hooks;
+package com.qa.test.stepDef;
 
 
 import java.io.IOException;

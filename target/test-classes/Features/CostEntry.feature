@@ -2,7 +2,7 @@
 Feature: CostEntry
   Description: To Validate CostEntry feature
 
-  @CostEntry 
+  @CostEntry @Test
   Scenario Outline: CostEntry
     Given CE: Open Process as "<Process>"
     When CE: Click On Add
