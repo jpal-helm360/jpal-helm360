@@ -1,4 +1,4 @@
-package com.qa.pages;
+/*package com.qa.pages;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -81,3 +81,4 @@ public class CostEntryPage extends BaseTest {
 	
 
 }
+*/

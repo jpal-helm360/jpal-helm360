@@ -2,7 +2,7 @@
 Feature: CostEntry
   Description: To Validate CostEntry feature
 
-  @CostEntry @Sanity
+  @CostEntry 
   Scenario Outline: CostEntry
     Given CE: Open Process as "<Process>"
     When CE: Click On Add
@@ -18,4 +18,5 @@ Feature: CostEntry
     @CostEntry
     Examples: To Test CostEntry
       | Process    | CostType | Matter    | Timekeeper | Quantity | Currency | Rate |
-      | Time Entry | 004H     | 10280-001 |       4086 |        1 | USD      |   10 |
+      | Cost Entry | Travel   | 10164-001 |       6593 |        2 | USD      |   10 |
+     # | Cost Entry | 004H     | 10280-001 |       4086 |        1 | USD      |   10 |
