@@ -11,6 +11,7 @@ Feature: CostEntry
     Then CE: Enter Timekeeper Number as "<Timekeeper>"
     Then CE: Enter Quantity as "<Quantity>"
     Then CE: Enter Work Currency as "<Currency>"
+    Then CE: Enter Work Rate as "<Rate>"
     Then CE: Enter Narrative as "Narrative"
     Then CE: Click on PostAll
     Then CE: Validate Home Page is Displayed

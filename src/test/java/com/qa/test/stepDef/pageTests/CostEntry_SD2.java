@@ -58,6 +58,11 @@ public class CostEntry_SD2 {
 	public void ce_Enter_Work_Currency_as(String currency) {
 		page.enterWorkCurrency(currency);
 	}
+	
+	@Then("^CE: Enter Work Rate as \"([^\"]*)\"$")
+	public void ce_Enter_Work_Rate_as(String rate) {
+		page.enterWorkRate(rate);
+	}
 
 	@Then("^CE: Enter Narrative as \"([^\"]*)\"$")
 	public void ce_Enter_Narrative_as(String narrative) {

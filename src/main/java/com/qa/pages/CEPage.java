@@ -41,8 +41,8 @@ public class CEPage extends BaseTest {
 	@FindBy(xpath = "//span[text()='Work Currency']//ancestor::e3e-bound-input//input")
 	private WebElement workCurrecyTxtBx;
 	                   
-	@FindBy(xpath = "//span[text()='Hours']//ancestor::e3e-bound-input//input")
-	private WebElement hoursTxtBX;
+	@FindBy(xpath = "//span[text()='Work Rate']//ancestor::e3e-bound-input//input")
+	private WebElement workRateTxtBX;
 	
 	@FindBy(xpath = "//span[text()='Narrative']//ancestor::e3e-bound-input//div[@class='ql-editor ql-blank']")
 	private WebElement narrativeTxtBx;
@@ -101,6 +101,12 @@ public class CEPage extends BaseTest {
 	public void enterWorkCurrency(String wkCurrency) {
 		sUtil.scrollToElement(workCurrecyTxtBx);
 		sUtil.enterData(workCurrecyTxtBx, wkCurrency);
+		sUtil.enterThroughKeys(Keys.ENTER);
+	}
+	
+	public void enterWorkRate(String wkRate) {
+		//sUtil.scrollToElement(workRateTxtBX);
+		sUtil.enterData(workRateTxtBX, wkRate);
 		sUtil.enterThroughKeys(Keys.ENTER);
 	}
 	
