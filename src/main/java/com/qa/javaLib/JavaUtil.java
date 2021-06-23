@@ -24,25 +24,9 @@ public class JavaUtil {
 		return requiredDate;
 	}
 
-	/* This Function will take screenshot and return screenshot path 
-	public static String takeScreenshotPath(WebDriver driver, String scenarioName) {
-		TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
-		File source = takesScreenshot.getScreenshotAs(OutputType.FILE);
-		// LocalScreenshot Path :
-		String localScreenshotPath = System.getProperty("user.dir") + "\\Screenshots\\" + scenarioName + "_"
-				+ timestamp() + ".png";
-		try {
-			FileUtils.copyFile(source, new File(localScreenshotPath));
-		} catch (Exception e) {
-			e.getMessage();
-		}
-		// JenkinsScreenshot Path :
-		String jenkinsScreenshotPath = TestData.getScreenshotPath() + scenarioName + "_" + timestamp() + ".png";
-
-		return jenkinsScreenshotPath;
-	}*/
-	/* To take current time */
-	public static String timestamp() {
+	
+	// To get current time 
+	public static String currentTimestamp() {
 		return new SimpleDateFormat("yyyy-MM-dd HH-mm-ss").format(new Date());
 	}
 

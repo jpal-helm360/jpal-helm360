@@ -2,7 +2,9 @@ package com.qa.test.stepDef;
 
 
 import java.io.IOException;
-import com.qa.seleniumLib.SeleniumUtil;
+import org.openqa.selenium.By;
+import com.qa.seleniumLib.SeleniumActions;
+import com.qa.seleniumLib.SeleniumWait;
 import com.qa.seleniumLib.TestData;
 import com.vimalselvam.cucumber.listener.Reporter;
 import cucumber.api.Scenario;
@@ -18,13 +20,31 @@ public class ServiceHooks extends com.qa.base.BaseTest {
 	// 3. Specify the package in the runner
 	// 4. Inject the Scenario Object in the hook method
 
-	@Before(order = 0)
+	/*@Before(order = 0)
 	public void setUp(Scenario scenario) {
 		this.scenario = scenario;
 		System.out.println("Scenario is ---> " + this.scenario.getName());
 		doLogin();
 		new SeleniumUtil().iSleep();
 		System.out.println("Login Done");
+	}*/
+	
+	@Before(order = 0)
+	public void setUp(Scenario scenario) {
+		this.scenario = scenario;
+		System.out.println("Scenario is ---> " + this.scenario.getName());
+		driver=getDriver();
+		driver.get(TestData.getURL());
+		SeleniumWait sUtil=new SeleniumWait();
+		sUtil.iSleep(7);
+		try {
+			Runtime.getRuntime().exec(System.getProperty("user.dir") + "/src/test/resources/Autoit/3EAuthencation.exe");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		sUtil.iSleep(5);
+		new SeleniumActions().doClick(driver.findElement(By.xpath("//div[@class='search-button']")));
+		sUtil.iSleep(2);
 	}
 
 	@After
@@ -34,7 +54,7 @@ public class ServiceHooks extends com.qa.base.BaseTest {
 		if (scenario.isFailed()) {
 			System.out.println("Falied Scenario Name Is: " + scenarioName);
 			scenario.write("Current URL is : " + driver.getCurrentUrl());
-			Reporter.addScreenCaptureFromPath(SeleniumUtil.takeScreenshotPath(driver, scenarioName));
+			Reporter.addScreenCaptureFromPath(SeleniumActions.takeScreenshotPath(driver, scenarioName));
 		} else {
 			System.out.println("Pass Scenario Name Is: " + scenarioName);
 		}

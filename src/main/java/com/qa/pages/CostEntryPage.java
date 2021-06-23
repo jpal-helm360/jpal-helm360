@@ -5,11 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import com.qa.base.BaseTest;
-import com.qa.seleniumLib.SeleniumUtil;
+import com.qa.seleniumLib.SeleniumActions;
+import com.qa.seleniumLib.SeleniumWait;
 
 public class CostEntryPage extends BaseTest {
 	
-	SeleniumUtil sUtil;
+	SeleniumActions sActions;
 
 	@FindBy(xpath = "//div[@class='search-button']")
 	private WebElement searchPocessBtn;
@@ -55,72 +56,75 @@ public class CostEntryPage extends BaseTest {
 
 	public CostEntryPage() {
 		PageFactory.initElements(driver, this);
-		sUtil = new SeleniumUtil();
+		sActions = new SeleniumActions();
 	}
 
 	public void clickSearchProcess() {
-		sUtil.doClick(searchPocessBtn);
-		sUtil.iSleep();
+		//sUtil.doClick(searchPocessBtn);
+		//sUtil.iSleep(SeleniumUtil.processBtnClick_Pre);
+		//sUtil.iSleep();
 	}
 
 	public void openProcess(String processName) {
-		sUtil.enterData(processNameTxtBx, processName);
-		sUtil.iSleep();
-		sUtil.enterThroughKeys(Keys.ENTER);
+		sActions.enterData(processNameTxtBx, processName);
+		//sUtil.iSleep(SeleniumUtil.enterProcessName_Post);
+		//sUtil.iSleep();
+		new SeleniumWait().iSleep(5);
+		sActions.enterThroughKeys(Keys.ENTER);
 	}
 
 	public void clickAdd() {
 		//sUtil.doClick(addBtn);
-		sUtil.jsClick(addBtn);
+		sActions.jsClick(addBtn);
 	}
 
 	public String getHeader() {
-		return sUtil.getText(timeEntryHeader);
+		return sActions.getText(timeEntryHeader);
 	}
 
 	public void enterTkpNumber(String tkp) {
-		sUtil.enterData(timekeeperTxtBx, tkp);
-		sUtil.enterThroughKeys(Keys.ENTER);
+		sActions.enterData(timekeeperTxtBx, tkp);
+		sActions.enterThroughKeys(Keys.ENTER);
 	}
 	
 	public void enterMatter(String maater) {
-		sUtil.enterData(matterTxtBx, maater);
-		sUtil.enterThroughKeys(Keys.ENTER);
+		sActions.enterData(matterTxtBx, maater);
+		sActions.enterThroughKeys(Keys.ENTER);
 	}
 	
 	public void enterCostType(String costType) {
-		sUtil.enterData(costTypeTxtBx, costType);
-		sUtil.enterThroughKeys(Keys.ENTER);
+		sActions.enterData(costTypeTxtBx, costType);
+		sActions.enterThroughKeys(Keys.ENTER);
 	}
 	
 	public void enterQuantity(String quantity) {
-		sUtil.enterData(quantityTxtBx, quantity);
-		sUtil.enterThroughKeys(Keys.ENTER);
+		sActions.enterData(quantityTxtBx, quantity);
+		sActions.enterThroughKeys(Keys.ENTER);
 	}
 	
 	public void enterWorkCurrency(String wkCurrency) {
-		sUtil.scrollToElement(workCurrecyTxtBx);
-		sUtil.enterData(workCurrecyTxtBx, wkCurrency);
-		sUtil.enterThroughKeys(Keys.ENTER);
+		sActions.scrollToElement(workCurrecyTxtBx);
+		sActions.enterData(workCurrecyTxtBx, wkCurrency);
+		sActions.enterThroughKeys(Keys.ENTER);
 	}
 	
 	public void enterWorkRate(String wkRate) {
-		sUtil.enterData(workRateTxtBX, wkRate);
-		sUtil.enterThroughKeys(Keys.ENTER);
+		sActions.enterData(workRateTxtBX, wkRate);
+		sActions.enterThroughKeys(Keys.ENTER);
 	}
 	
 	public void enterNarrative(String narrative) {
-		sUtil.scrollToElement(narrativeTxtBx);
-		sUtil.enterData(narrativeTxtBx, narrative);
-		sUtil.enterThroughKeys(Keys.ENTER);
+		sActions.scrollToElement(narrativeTxtBx);
+		sActions.enterData(narrativeTxtBx, narrative);
+		sActions.enterThroughKeys(Keys.ENTER);
 	}
 
 	public void ClickPostAll() {
-		sUtil.doClick(postAllBtn);
+		sActions.doClick(postAllBtn);
 	}
 	
 	public String getText() {
-		return sUtil.getText(homeText);
+		return sActions.getText(homeText);
 	}
 	
 
