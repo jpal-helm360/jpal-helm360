@@ -1,4 +1,4 @@
-package com.qa.javaLib;
+package com.qa.seleniumLib;
 
 
 import java.text.DecimalFormat;

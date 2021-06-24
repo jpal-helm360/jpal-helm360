@@ -14,20 +14,6 @@ import cucumber.api.java.Before;
 public class ServiceHooks extends com.qa.base.BaseTest {
 
 	Scenario scenario;
-
-	// 1.Create the public method
-	// 2. Use the @Before & @After annotations with the methods
-	// 3. Specify the package in the runner
-	// 4. Inject the Scenario Object in the hook method
-
-	/*@Before(order = 0)
-	public void setUp(Scenario scenario) {
-		this.scenario = scenario;
-		System.out.println("Scenario is ---> " + this.scenario.getName());
-		doLogin();
-		new SeleniumUtil().iSleep();
-		System.out.println("Login Done");
-	}*/
 	
 	@Before(order = 0)
 	public void setUp(Scenario scenario) {
@@ -54,7 +40,7 @@ public class ServiceHooks extends com.qa.base.BaseTest {
 		if (scenario.isFailed()) {
 			System.out.println("Falied Scenario Name Is: " + scenarioName);
 			scenario.write("Current URL is : " + driver.getCurrentUrl());
-			Reporter.addScreenCaptureFromPath(SeleniumActions.takeScreenshotPath(driver, scenarioName));
+			Reporter.addScreenCaptureFromPath(SeleniumActions.getScreenshotPath(driver, scenarioName));
 		} else {
 			System.out.println("Pass Scenario Name Is: " + scenarioName);
 		}

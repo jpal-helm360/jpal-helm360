@@ -2,6 +2,7 @@ package com.qa.seleniumLib;
 
 import java.io.File;
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
@@ -10,7 +11,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import com.qa.base.BaseTest;
-import com.qa.javaLib.JavaUtil;
 
 public class SeleniumActions extends BaseTest {
 
@@ -25,9 +25,17 @@ public class SeleniumActions extends BaseTest {
 
 	// Scroll To The Element
 	public void scrollToElement(WebElement element) {
-		sWait.eWaitForElementToBeClickable(element);
+		// sWait.eWaitForElementToBeClickable(element);
+		sWait.eWaitForVisible(element);
 		jse.executeScript("arguments[0].scrollIntoView()", element);
 	}
+
+	/*
+	 * // Scroll To The Bottom of Page public void scrollToEndOfPage(WebElement
+	 * element) { // sWait.eWaitForElementToBeClickable(element);
+	 * sWait.eWaitForVisible(element);
+	 * jse.executeScript("arguments[0].scrollIntoView()", element); }
+	 */
 
 	// To JS Click on Element:
 	public void jsClick(WebElement element) {
@@ -51,7 +59,7 @@ public class SeleniumActions extends BaseTest {
 	// Enter Data into TextBox
 	public void enterData(WebElement txtBx, String input) {
 		sWait.iSleep(3);
-		//sWait.eWaitForVisible(txtBx);
+		// sWait.eWaitForVisible(txtBx);
 		if (txtBx.getAttribute("value") != null) {
 			txtBx.clear();
 			txtBx.sendKeys(input);
@@ -72,8 +80,17 @@ public class SeleniumActions extends BaseTest {
 		return element.getText();
 	}
 
+	public String getAlertText() {
+		return driver.switchTo().alert().getText();
+	}
+
+	public void navigateToSubMenu(WebElement element) {
+		Actions act = new Actions(driver);
+		act.moveToElement(element).build().perform();
+	}
+
 	// This Function will take screenshot and return screenshot path
-	public static String takeScreenshotPath(WebDriver driver, String scenarioName) {
+	public static String getScreenshotPath(WebDriver driver, String scenarioName) {
 		TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
 		File source = takesScreenshot.getScreenshotAs(OutputType.FILE);
 		// LocalScreenshot Path :
@@ -84,11 +101,15 @@ public class SeleniumActions extends BaseTest {
 		} catch (Exception e) {
 			e.getMessage();
 		}
-		// JenkinsScreenshot Path :
-		// String jenkinsScreenshotPath = TestData.getScreenshotPath() + scenarioName +
+		// Remote Screenshot Path : F
+		// String remoteScreenshotPath = TestData.getScreenshotPath() + scenarioName +
 		// "_" + JavaUtil.timestamp() + ".png";
 
 		return localScreenshotPath;
+	}
+
+	public WebElement getWebelement(String firstXpath,String dynamicXpath,String lastXpath) {	
+		return driver.findElement(By.xpath(firstXpath+dynamicXpath+lastXpath));
 	}
 
 }
