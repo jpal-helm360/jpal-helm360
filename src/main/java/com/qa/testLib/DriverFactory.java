@@ -1,4 +1,4 @@
-package com.qa.base;
+package com.qa.testLib;
 
 
 import java.util.concurrent.TimeUnit;
@@ -7,11 +7,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class BaseTest {
+public class DriverFactory {
 
 	public static WebDriver driver=null;
 
-	public BaseTest() {
+	public DriverFactory() {
 		
 	}
 	

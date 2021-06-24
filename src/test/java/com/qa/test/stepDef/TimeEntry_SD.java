@@ -2,7 +2,8 @@ package com.qa.test.stepDef;
 
 import static org.testng.Assert.assertEquals;
 import com.qa.pages.TimeEntryPage;
-import com.qa.seleniumLib.PropertyReader;
+import com.qa.testLib.PropertyReader;
+
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;

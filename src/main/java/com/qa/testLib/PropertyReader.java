@@ -1,4 +1,4 @@
-package com.qa.seleniumLib;
+package com.qa.testLib;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

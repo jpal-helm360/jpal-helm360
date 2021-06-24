@@ -1,7 +1,7 @@
-package com.qa.seleniumLib;
+package com.qa.testLib;
 
 
-public class TestData {
+public class TestDataManager {
 
 	public static String getEnviornment() {
 		return PropertyReader.readProperty("Environment");

@@ -4,11 +4,12 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import com.qa.base.BaseTest;
-import com.qa.seleniumLib.SeleniumActions;
-import com.qa.seleniumLib.SeleniumWait;
 
-public class CostEntryPage extends BaseTest {
+import com.qa.testLib.DriverFactory;
+import com.qa.testLib.SeleniumActions;
+import com.qa.testLib.SeleniumWait;
+
+public class CostEntryPage extends DriverFactory {
 	
 	SeleniumActions sActions;
 

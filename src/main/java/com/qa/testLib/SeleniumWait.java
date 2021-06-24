@@ -1,4 +1,4 @@
-package com.qa.seleniumLib;
+package com.qa.testLib;
 
 import java.time.Duration;
 import java.util.List;
@@ -11,9 +11,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import com.qa.base.BaseTest;
 
-public class SeleniumWait extends BaseTest {
+public class SeleniumWait extends DriverFactory {
 
 	// WebElement element=null;
 

@@ -3,15 +3,16 @@ package com.qa.test.stepDef;
 
 import java.io.IOException;
 import org.openqa.selenium.By;
-import com.qa.seleniumLib.SeleniumActions;
-import com.qa.seleniumLib.SeleniumWait;
-import com.qa.seleniumLib.TestData;
+
+import com.qa.testLib.SeleniumActions;
+import com.qa.testLib.SeleniumWait;
+import com.qa.testLib.TestDataManager;
 import com.vimalselvam.cucumber.listener.Reporter;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 
-public class ServiceHooks extends com.qa.base.BaseTest {
+public class ServiceHooks extends com.qa.testLib.DriverFactory {
 
 	Scenario scenario;
 	
@@ -20,7 +21,7 @@ public class ServiceHooks extends com.qa.base.BaseTest {
 		this.scenario = scenario;
 		System.out.println("Scenario is ---> " + this.scenario.getName());
 		driver=getDriver();
-		driver.get(TestData.getURL());
+		driver.get(TestDataManager.getURL());
 		SeleniumWait sUtil=new SeleniumWait();
 		sUtil.iSleep(7);
 		try {
@@ -46,15 +47,15 @@ public class ServiceHooks extends com.qa.base.BaseTest {
 		}
 		Reporter.assignAuthor("Jaydeep");
 		Reporter.loadXMLConfig(System.getProperty("user.dir") + "/extent-config.xml");
-		Reporter.setSystemInfo("Environment", TestData.getEnviornment());
-		Reporter.setSystemInfo("ExecutionType", TestData.getExecutionType());
+		Reporter.setSystemInfo("Environment", TestDataManager.getEnviornment());
+		Reporter.setSystemInfo("ExecutionType", TestDataManager.getExecutionType());
 		Reporter.setSystemInfo("User", System.getProperty("user.name"));
 		Reporter.setSystemInfo("Time-Zone", System.getProperty("user.timezone"));
 		Reporter.setSystemInfo("Machine", "Windows 10" + " " + "64 Bit");
 		Reporter.setSystemInfo("Selenium", "3.7.0");
 		Reporter.setSystemInfo("Maven", "3.5.2");
 		Reporter.setSystemInfo("Java-Version", "1.8.0_151");
-		Reporter.setSystemInfo("URL", TestData.getURL());
+		Reporter.setSystemInfo("URL", TestDataManager.getURL());
 		Reporter.getExtentReport();
 		//driver.quit();
 	}

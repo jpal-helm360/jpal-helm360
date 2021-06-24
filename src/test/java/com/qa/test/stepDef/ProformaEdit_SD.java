@@ -10,6 +10,12 @@ public class ProformaEdit_SD {
 	
 	private static ProformaEditPage pePage;
 	
+	private static String profTotalAmt_ProfPage=null;
+	
+	private static String invTotalAmt_ProfPage=null;
+	
+	private static String invTotalAmt_InvPage=null;
+	
 	public ProformaEdit_SD() {
 		pePage=new ProformaEditPage();
 	}
@@ -31,8 +37,8 @@ public class ProformaEdit_SD {
 
 	@When("^PE: Extract Proforma Total Amount$")
 	public void pe_Extract_Proforma_Total_Amount() {
-		String profTotslAmt=pePage.getProfTotalAmount();
-		System.out.println("Total Proforma Amouunt------------------------->>>"+profTotslAmt);
+		profTotalAmt_ProfPage=pePage.getProfTotalAmount();
+		System.out.println("Total Proforma Amouunt------------------------->>>"+profTotalAmt_ProfPage);
 	}
 
 	@Then("^PE: Click On Three Dot$")
@@ -70,7 +76,6 @@ public class ProformaEdit_SD {
 		pePage.selectAdjsmentType(adjsType);
 	}
 
-	
 	@Then("^PE: Navigate To Performa Recalc button$")
 	public void pe_Navigate_To_Performa_Recalc_button() {
 		pePage.navigateToRecalc();
@@ -83,7 +88,7 @@ public class ProformaEdit_SD {
 	
 	@Then("^PE: Compare Proforma Total Amount and Invoice Total Amount Before BillNoPrint$")
 	public void pe_Compare_Proforma_Total_Amount_and_Invoice_Total_Amount_Before_BillNoPrint() {
-		
+		ass
 	}
 
 	@Then("^PE: Performa BillNoPrint and Wait Few Second$")
