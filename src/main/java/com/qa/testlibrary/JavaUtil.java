@@ -1,12 +1,12 @@
-package com.qa.testLib;
+package com.qa.testlibrary;
 
-
+import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-
 
 public class JavaUtil {
 
@@ -24,8 +24,7 @@ public class JavaUtil {
 		return requiredDate;
 	}
 
-	
-	// To get current time 
+	// To get current time
 	public static String currentTimestamp() {
 		return new SimpleDateFormat("yyyy-MM-dd HH-mm-ss").format(new Date());
 	}
@@ -99,6 +98,15 @@ public class JavaUtil {
 	public static String removeSpace(String ip, String replacement) {
 		ip = ip.replaceAll("[\n\r]+", replacement);
 		return ip;
+	}
+
+	public static String getYesterdayDate() {
+		Calendar cal = Calendar.getInstance();
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		cal.add(Calendar.DATE, -1);
+		String yesterdayDate = dateFormat.format(cal.getTime());
+
+		return yesterdayDate.substring(7);
 	}
 
 }

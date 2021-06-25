@@ -15,17 +15,17 @@ Feature: PerformaEdit
     Then PE: Click On Adjustment Type
     Then PE: Select Adjustment Type as "<AdjustmentType>"
     Then PE: Navigate To Performa Recalc button
-    Then PE: Performa Recalc
+    Then PE: Proforma Recalc
     And PE: Extract Adjusted Proforma Total Amount
     Then PE: Compare Proforma Total Amount and Invoice Total Amount Before BillNoPrint
-    Then PE: Performa BillNoPrint and Wait Few Second
+    Then PE: Proforma BillNoPrint and Validate ProfAmt Not Displaying Now
     And PE: Get Invoice Number From Database
     Then PE: Open Invoice Process
-    Then PE: Search and select Invoice Generated "<Invoice>"
+    Then PE: Search and select Invoice Generated
     And PE: Extract Invoice Total Amount
     Then PE: Compare Proforma Total Amount and Invoice Total Amount After BillNoPrint
     Then PE: Click on Cancel
 
     Examples: To Test ProformaAdjustment
-      | Proforma | AdjustmentAmount | AdjustmentType              | Invoice |
-      |     1059 |                3 | Adjustment- Display on Bill |  100567 |
+      | Proforma | AdjustmentAmount | AdjustmentType              |
+      |     2136 |                3 | Adjustment- Display on Bill |

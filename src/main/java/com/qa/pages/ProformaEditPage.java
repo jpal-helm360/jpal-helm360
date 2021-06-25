@@ -2,13 +2,14 @@ package com.qa.pages;
 
 
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.qa.testLib.DriverFactory;
-import com.qa.testLib.SeleniumActions;
-import com.qa.testLib.SeleniumWait;
+import com.qa.testlibrary.DriverFactory;
+import com.qa.testlibrary.SeleniumActions;
+import com.qa.testlibrary.SeleniumWait;
 
 public class ProformaEditPage extends DriverFactory {
 
@@ -75,7 +76,7 @@ public class ProformaEditPage extends DriverFactory {
 	private WebElement textbbb;
 
 	@FindBy(xpath = "//span[text()='Home Page']")
-	private WebElement homeText;
+	private WebElement homePageText;
 
 	public ProformaEditPage() {
 		PageFactory.initElements(driver, this);
@@ -148,15 +149,25 @@ public class ProformaEditPage extends DriverFactory {
 
 	public void doRecalc() {
 		sActions.jsClick(recalcBtn);
+		new SeleniumWait().iSleep(10);
 	}
 
 	public void doBillNoPrint() {
 		sActions.jsClick(billNoPrintBtn);
-		new SeleniumWait().iSleep(5);
+		//new SeleniumWait().iSleep(10);
 	}
-
-	public String getText() {
-		return sActions.getText(homeText);
+	
+	public boolean isProfTotalAmountDisplay() {
+		boolean flag=false;
+		try {
+			if(sActions.isDisplayed(profTotalAmt)) {
+				flag=true;
+			}
+		}
+		catch(NoSuchElementException e) {
+			e.printStackTrace();
+		}
+		return flag;
 	}
 
 	public void openInvoiceProcess() {

@@ -1,4 +1,4 @@
-package com.qa.testLib;
+package com.qa.testlibrary;
 
 import java.io.File;
 import org.apache.commons.io.FileUtils;
@@ -55,6 +55,13 @@ public class SeleniumActions extends DriverFactory {
 		return element.isDisplayed();
 	}
 
+	// Clear Data into TextBox
+	public void clearData(WebElement txtBx) {
+		sWait.iSleep(3);
+		txtBx.clear();
+		enterThroughKeys(Keys.ENTER);
+	}
+
 	// Enter Data into TextBox
 	public void enterData(WebElement txtBx, String input) {
 		sWait.iSleep(3);
@@ -72,6 +79,18 @@ public class SeleniumActions extends DriverFactory {
 	public void enterThroughKeys(Keys key) {
 		Actions act = new Actions(driver);
 		act.sendKeys(key).build().perform();
+	}
+
+	public void clickProcessSearch(WebElement searchBtn) {
+		doClick(searchBtn);
+		sWait.iSleep(2);
+
+	}
+
+	public void openProcess(WebElement processNameTxtBx, String processName) {
+		enterData(processNameTxtBx, processName);
+		sWait.iSleep(5);
+		enterThroughKeys(Keys.ENTER);
 	}
 
 	public String getText(WebElement element) {
@@ -107,8 +126,8 @@ public class SeleniumActions extends DriverFactory {
 		return localScreenshotPath;
 	}
 
-	public WebElement getWebelement(String firstXpath,String dynamicXpath,String lastXpath) {	
-		return driver.findElement(By.xpath(firstXpath+dynamicXpath+lastXpath));
+	public WebElement getWebelement(String firstXpath, String dynamicXpath, String lastXpath) {
+		return driver.findElement(By.xpath(firstXpath + dynamicXpath + lastXpath));
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.qa.testLib;
+package com.qa.testlibrary;
 
 import java.time.Duration;
 import java.util.List;

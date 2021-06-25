@@ -1,8 +1,8 @@
-package com.qa.test.stepDef;
+package com.qa.test.stepdefinition;
 
 import static org.testng.Assert.assertEquals;
 import com.qa.pages.CostEntryPage;
-import com.qa.testLib.PropertyReader;
+import com.qa.testlibrary.PropertyReader;
 
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
@@ -70,13 +70,13 @@ public class CostEntry_SD {
 
 	@Then("^CE: Click on PostAll$")
 	public void ce_Click_on_PostAll() {
-		cePage.ClickPostAll();
+		cePage.doPostAll();
 	}
 
 	@Then("^CE: Validate Home Page is Displayed$")
 	public void ce_Validate_Home_Page_is_Displayed() {
 		String actualHomePageText=PropertyReader.readProperty("homePageText");
-		assertEquals(actualHomePageText, cePage.getText(),"Home Page Text Not Verified");
+		assertEquals(actualHomePageText, cePage.getHomePageText(),"Home Page Text Not Verified");
 	}
 
 }

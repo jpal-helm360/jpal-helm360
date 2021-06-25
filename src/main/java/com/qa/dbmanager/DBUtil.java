@@ -8,7 +8,7 @@ import java.util.List;
 
 import org.testng.Reporter;
 
-import com.qa.testLib.TestDataManager;
+import com.qa.testlibrary.TestDataManager;
 
 public class DBUtil extends DBConnection {
 

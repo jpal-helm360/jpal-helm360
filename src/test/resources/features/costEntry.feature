@@ -18,5 +18,5 @@ Feature: CostEntry
 
     Examples: To Test CostEntry
       | Process    | CostType | Matter    | Timekeeper | Quantity | Currency | Rate |
-      | Cost Entry | Travel   | 10164-001 |       6593 |        3 | USD      |   10 |
+      | Cost Entry | Travel   | 10158-001 |       9929 |        3 | USD      |   10 |
      # | Cost Entry | 004H     | 10280-001 |       4086 |        1 | USD      |   10 |

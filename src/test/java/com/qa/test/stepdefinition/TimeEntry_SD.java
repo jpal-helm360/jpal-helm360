@@ -1,8 +1,8 @@
-package com.qa.test.stepDef;
+package com.qa.test.stepdefinition;
 
 import static org.testng.Assert.assertEquals;
 import com.qa.pages.TimeEntryPage;
-import com.qa.testLib.PropertyReader;
+import com.qa.testlibrary.PropertyReader;
 
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
@@ -60,13 +60,13 @@ public class TimeEntry_SD {
 
 	@Then("^Click on PostAll$")
 	public void click_on_PostAll() {
-		tePage.ClickPostAll();
+		tePage.doPostAll();
 	}
 
 	@Then("^Validate Home Page is Displayed$")
 	public void validate_Home_Page_is_Displayed() {
 		String homePageText=PropertyReader.readProperty("homePageText");
-		assertEquals(homePageText, tePage.getText(),"Home Page Not Matched");
+		assertEquals(homePageText, tePage.getHomePageText(),"Home Page Not Matched");
 		
 	}
 

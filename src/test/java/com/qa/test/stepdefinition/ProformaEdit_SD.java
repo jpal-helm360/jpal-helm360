@@ -1,9 +1,11 @@
-package com.qa.test.stepDef;
+package com.qa.test.stepdefinition;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertNotEquals;
 import com.qa.dbmanager.DBUtil;
 import com.qa.pages.ProformaEditPage;
 import com.qa.query.ProformaEdit;
-
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -86,7 +88,7 @@ public class ProformaEdit_SD {
 		pePage.navigateToRecalc();
 	}
 
-	@Then("^PE: Performa Recalc$")
+	@Then("^PE: Proforma Recalc$")
 	public void pe_Performa_Recalc() {
 		pePage.doRecalc();
 	}
@@ -100,17 +102,20 @@ public class ProformaEdit_SD {
 	public void pe_Compare_Proforma_Total_Amount_and_Invoice_Total_Amount_Before_BillNoPrint() {
 		System.out.println("ProfTotalAmt_ProfPage----------->>>>" + profTotalAmt_ProfPage);
 		System.out.println("adjustedProfTotalAmt_ProfPage----------->>>>" + adjustedProfTotalAmt_ProfPage);
+		assertNotEquals(profTotalAmt_ProfPage, adjustedProfTotalAmt_ProfPage, "Adjusted Amount is same Please check the Adjustment");
 	}
 
-	@Then("^PE: Performa BillNoPrint and Wait Few Second$")
+	@Then("^PE: Proforma BillNoPrint and Validate ProfAmt Not Displaying Now$")
 	public void pe_Performa_BillNoPrint() {
 		pePage.doBillNoPrint();
+		System.out.println("BillNoPrint is Displayed:=================>>>"+pePage.isProfTotalAmountDisplay());
+		//assertFalse(pePage.isProfTotalAmountDisplay(), "BillNoPrint Not Successfull");
 	}
 
 	@Then("^PE: Get Invoice Number From Database$")
 	public void pe_Get_Invoice_Number_From_Database() {
 		invoiceNumber=DBUtil.get(ProformaEdit.getInvoice, 1);
-		System.out.println();
+		System.out.println("invoiceNumber from database: =============>>>"+invoiceNumber);
 	}
 
 	@Then("^PE: Open Invoice Process$")
@@ -118,9 +123,9 @@ public class ProformaEdit_SD {
 		pePage.openInvoiceProcess();
 	}
 
-	@Then("^PE: Search and select Invoice Generated \"([^\"]*)\"$")
-	public void pe_Search_and_select_Invoice_Generated(String invNumber) {
-		pePage.openInvoices(invNumber);
+	@Then("^PE: Search and select Invoice Generated$")
+	public void pe_Search_and_select_Invoice_Generated() {
+		pePage.openInvoices(invoiceNumber);
 	}
 
 	@Then("^PE: Extract Invoice Total Amount$")
@@ -130,7 +135,7 @@ public class ProformaEdit_SD {
 
 	@Then("^PE: Compare Proforma Total Amount and Invoice Total Amount After BillNoPrint$")
 	public void pe_Compare_Proforma_Total_Amount_and_Invoice_Total_Amount() {
-		System.out.println(pePage.getInvoiceTotalAmt());
+		assertEquals(adjustedProfTotalAmt_ProfPage, invTotalAmt_InvPage,"adjustedProfTotalAmt and invTotalAmt not matched");
 	}
 
 	@Then("^PE: Click on Cancel$")

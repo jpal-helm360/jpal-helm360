@@ -3,18 +3,18 @@ package com.qa.test.runner;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import com.qa.testLib.TestDataManager;
+import com.qa.testlibrary.TestDataManager;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.testng.TestNGCucumberRunner;
 
 
-@CucumberOptions(features = { "src/test/resources/Features" },	
-		glue = { "com.qa.test.stepDef", "com.qa.seleniumLib","com.qa.pages" },
+@CucumberOptions(features = { "src/test/resources/features" },	
+		glue = { "com.qa.test.stepdefinition", "com.qa.seleniumLib","com.qa.pages" },
 		plugin = {"com.vimalselvam.cucumber.listener.ExtentCucumberFormatter:./Report/TermiExtent.html" },
 		monochrome = true,
-		dryRun =false
-		,tags= {"@Regression"}
+		dryRun =true
+		,tags= {"@ProformaGeneration"}
 		)
 
 public class TestRunner {

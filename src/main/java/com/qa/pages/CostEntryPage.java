@@ -5,9 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.qa.testLib.DriverFactory;
-import com.qa.testLib.SeleniumActions;
-import com.qa.testLib.SeleniumWait;
+import com.qa.testlibrary.DriverFactory;
+import com.qa.testlibrary.SeleniumActions;
+import com.qa.testlibrary.SeleniumWait;
 
 public class CostEntryPage extends DriverFactory {
 	
@@ -53,7 +53,7 @@ public class CostEntryPage extends DriverFactory {
 	private WebElement postAllBtn;
 	
 	@FindBy(xpath = "//span[text()='Home Page']")
-	private WebElement homeText;
+	private WebElement homePageText;
 
 	public CostEntryPage() {
 		PageFactory.initElements(driver, this);
@@ -120,12 +120,12 @@ public class CostEntryPage extends DriverFactory {
 		sActions.enterThroughKeys(Keys.ENTER);
 	}
 
-	public void ClickPostAll() {
+	public void doPostAll() {
 		sActions.doClick(postAllBtn);
 	}
 	
-	public String getText() {
-		return sActions.getText(homeText);
+	public String getHomePageText() {
+		return sActions.getText(homePageText);
 	}
 	
 

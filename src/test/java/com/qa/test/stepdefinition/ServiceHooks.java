@@ -1,18 +1,18 @@
-package com.qa.test.stepDef;
+package com.qa.test.stepdefinition;
 
 
 import java.io.IOException;
 import org.openqa.selenium.By;
 
-import com.qa.testLib.SeleniumActions;
-import com.qa.testLib.SeleniumWait;
-import com.qa.testLib.TestDataManager;
+import com.qa.testlibrary.SeleniumActions;
+import com.qa.testlibrary.SeleniumWait;
+import com.qa.testlibrary.TestDataManager;
 import com.vimalselvam.cucumber.listener.Reporter;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 
-public class ServiceHooks extends com.qa.testLib.DriverFactory {
+public class ServiceHooks extends com.qa.testlibrary.DriverFactory {
 
 	Scenario scenario;
 	
@@ -25,7 +25,7 @@ public class ServiceHooks extends com.qa.testLib.DriverFactory {
 		SeleniumWait sUtil=new SeleniumWait();
 		sUtil.iSleep(7);
 		try {
-			Runtime.getRuntime().exec(System.getProperty("user.dir") + "/src/test/resources/Autoit/3EAuthencation.exe");
+			Runtime.getRuntime().exec(System.getProperty("user.dir") + "/src/test/resources/autoit/3EAuthencation.exe");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
