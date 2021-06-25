@@ -170,8 +170,8 @@ public class ProformaEditPage extends DriverFactory {
 		//sActions.jsClick(textbbb);
 	}
 
-	public void getInvoiceTotalAmt() {
-		sActions.getText(invTotalAmt);
+	public String getInvoiceTotalAmt() {
+		return sActions.getText(invTotalAmt);
 	}
 
 	public void doCancel() {
