@@ -71,7 +71,7 @@ public class SeleniumWait extends DriverFactory {
 		fluent.ignoring(TimeoutException.class);
 		WebElement wb = fluent.until(new Function<WebDriver, WebElement>() {
 			public WebElement apply(WebDriver driver) {
-				if (element.isDisplayed()) {
+				if (element.isEnabled()) {
 					return element;
 				} else {
 					return null;

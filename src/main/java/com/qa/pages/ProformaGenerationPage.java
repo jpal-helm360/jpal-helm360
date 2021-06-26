@@ -59,7 +59,6 @@ public class ProformaGenerationPage extends DriverFactory {
 		sActions = new SeleniumActions();
 	}
 
-	public void clic
 	public void openProcess(String processName) {
 		sActions.openProcess(processNameTxtBx, processName);
 	}

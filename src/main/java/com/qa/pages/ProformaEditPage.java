@@ -2,21 +2,20 @@ package com.qa.pages;
 
 
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.qa.testlibrary.DriverFactory;
-import com.qa.testlibrary.SeleniumActions;
-import com.qa.testlibrary.SeleniumWait;
+import com.qa.testLib.DriverFactory;
+import com.qa.testLib.SeleniumActions;
+import com.qa.testLib.SeleniumWait;
 
 public class ProformaEditPage extends DriverFactory {
 
 	SeleniumActions sActions;
-	
+
 	@FindBy(xpath = "//div[@class='search-button']")
-	private WebElement searchProcessBtn;
+	private WebElement searchPocessBtn;
 
 	@FindBy(xpath = "//input[@id='mat-input-1']")
 	private WebElement processNameTxtBx;
@@ -76,7 +75,7 @@ public class ProformaEditPage extends DriverFactory {
 	private WebElement textbbb;
 
 	@FindBy(xpath = "//span[text()='Home Page']")
-	private WebElement homePageText;
+	private WebElement homeText;
 
 	public ProformaEditPage() {
 		PageFactory.initElements(driver, this);
@@ -84,11 +83,17 @@ public class ProformaEditPage extends DriverFactory {
 	}
 
 	public void clickSearchProcess() {
-		sActions.clickProcessSearch(searchProcessBtn);
+		// sUtil.doClick(searchPocessBtn);
+		// sUtil.iSleep(SeleniumUtil.processBtnClick_Pre);
+		// sUtil.iSleep();
 	}
 
 	public void openProcess(String processName) {
-		sActions.openProcess(processNameTxtBx, processName);
+		sActions.enterData(processNameTxtBx, processName);
+		// sUtil.iSleep(SeleniumUtil.enterProcessName_Post);
+		// sUtil.iSleep();
+		new SeleniumWait().iSleep(5);
+		sActions.enterThroughKeys(Keys.ENTER);
 	}
 
 	public void searchProforma(String proforma) {
@@ -129,6 +134,8 @@ public class ProformaEditPage extends DriverFactory {
 	}
 	
 	public void selectAdjsmentType(String xpath) {
+		//sActions.jsClick(sActions.getWebelement(xpath));
+		//span[text()='Adjustment- Display on Bill']
 		sActions.jsClick(sActions.getWebelement("//span[text()='", xpath, "']"));
 	}
 
@@ -141,36 +148,26 @@ public class ProformaEditPage extends DriverFactory {
 
 	public void doRecalc() {
 		sActions.jsClick(recalcBtn);
-		new SeleniumWait().iSleep(10);
 	}
 
 	public void doBillNoPrint() {
 		sActions.jsClick(billNoPrintBtn);
-		//new SeleniumWait().iSleep(10);
+		new SeleniumWait().iSleep(5);
 	}
-	
-	public boolean isProfTotalAmountDisplay() {
-		boolean flag=false;
-		try {
-			if(sActions.isDisplayed(profTotalAmt)) {
-				flag=true;
-			}
-		}
-		catch(NoSuchElementException e) {
-			e.printStackTrace();
-		}
-		return flag;
+
+	public String getText() {
+		return sActions.getText(homeText);
 	}
 
 	public void openInvoiceProcess() {
-		//sActions.clickProcessSearch(searchProcessBtn);
-		sActions.jsClick(searchProcessBtn);
+		sActions.jsClick(searchPocessBtn);
 		openProcess("Invoices");
 	}
 
 	public void openInvoices(String invoiceNumber) {
 		sActions.enterData(searchInvIpTxtBx, invoiceNumber);
 		sActions.enterThroughKeys(Keys.ENTER);
+		//sActions.jsClick(textbbb);
 	}
 
 	public String getInvoiceTotalAmt() {

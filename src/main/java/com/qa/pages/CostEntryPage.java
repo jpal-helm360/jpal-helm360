@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import com.qa.testlibrary.DriverFactory;
 import com.qa.testlibrary.SeleniumActions;
+import com.qa.testlibrary.SeleniumWait;
 
 public class CostEntryPage extends DriverFactory {
 	
@@ -67,7 +68,8 @@ public class CostEntryPage extends DriverFactory {
 	}
 
 	public void clickAdd() {
-		sActions.doClick(addBtn);
+		//sActions.doClick(addBtn);
+		sActions.jsClick(addBtn);
 	}
 
 	public String getHeader() {
@@ -107,12 +109,14 @@ public class CostEntryPage extends DriverFactory {
 	
 	public void enterNarrative(String narrative) {
 		sActions.scrollToElement(narrativeTxtBx);
+		//new SeleniumWait().iSleep(5);
 		sActions.enterData(narrativeTxtBx, narrative);
 		sActions.enterThroughKeys(Keys.ENTER);
 	}
 
 	public void doPostAll() {
-		sActions.doClick(postAllBtn);
+		//sActions.doClick(postAllBtn);
+		sActions.jsClick(postAllBtn);
 	}
 	
 	public String getHomePageText() {

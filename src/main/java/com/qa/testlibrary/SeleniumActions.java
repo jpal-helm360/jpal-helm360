@@ -27,6 +27,8 @@ public class SeleniumActions extends DriverFactory {
 	// ****************************************************************************
 	public void jsClick(WebElement element) {
 		sWait.eWaitForElementToBeClickable(element);
+		// sWait.fluentWait(element);
+		// sWait.iSleep(5);
 		jse.executeScript("arguments[0].click();", element);
 
 	}
@@ -46,6 +48,9 @@ public class SeleniumActions extends DriverFactory {
 	public void enterData(WebElement txtBx, String input) {
 		sWait.iSleep(3);
 		// sWait.eWaitForVisible(txtBx);
+		// sWait.eWaitForElementToBeClickable(txtBx);
+		// sWait.fluentWait(txtBx);
+		// sWait.eWaitForPageLoad();
 		if (txtBx.getAttribute("value") != null) {
 			txtBx.clear();
 			txtBx.sendKeys(input);

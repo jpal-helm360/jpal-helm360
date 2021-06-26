@@ -5,9 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.qa.testlibrary.DriverFactory;
-import com.qa.testlibrary.SeleniumActions;
-import com.qa.testlibrary.SeleniumWait;
+import com.qa.testLib.DriverFactory;
+import com.qa.testLib.SeleniumActions;
+import com.qa.testLib.SeleniumWait;
 
 public class TimeEntryPage extends DriverFactory {
 
@@ -47,7 +47,7 @@ public class TimeEntryPage extends DriverFactory {
 	private WebElement postAllBtn;
 	
 	@FindBy(xpath = "//span[text()='Home Page']")
-	private WebElement homePageText;
+	private WebElement homeText;
 
 	public TimeEntryPage() {
 		PageFactory.initElements(driver, this);
@@ -103,12 +103,12 @@ public class TimeEntryPage extends DriverFactory {
 		sActions.enterThroughKeys(Keys.ENTER);
 	}
 
-	public void doPostAll() {
+	public void ClickPostAll() {
 		sActions.doClick(postAllBtn);
 	}
 	
-	public String getHomePageText() {
-		return sActions.getText(homePageText);
+	public String getText() {
+		return sActions.getText(homeText);
 	}
 	
 }

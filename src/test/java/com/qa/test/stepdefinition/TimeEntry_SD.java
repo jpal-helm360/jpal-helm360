@@ -67,7 +67,6 @@ public class TimeEntry_SD {
 	public void validate_Home_Page_is_Displayed() {
 		String homePageText=PropertyReader.readProperty("homePageText");
 		assertEquals(homePageText, tePage.getHomePageText(),"Home Page Not Matched");
-		
 	}
 
 }

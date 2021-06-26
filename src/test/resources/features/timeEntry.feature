@@ -2,7 +2,7 @@
 Feature: TimeEntry
   Description: To Validate TimeEntry feature
 
-  @TimeEntry @Regression
+  @TimeEntry @Regression 
   Scenario Outline: TimeEntry
     Given Open Time Entry Process
     When Click On Add
