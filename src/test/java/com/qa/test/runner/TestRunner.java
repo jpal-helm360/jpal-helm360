@@ -13,8 +13,8 @@ import cucumber.api.testng.TestNGCucumberRunner;
 		glue = { "com.qa.test.stepdefinition", "com.qa.seleniumLib","com.qa.pages" },
 		plugin = {"com.vimalselvam.cucumber.listener.ExtentCucumberFormatter:./Report/TermiExtent.html" },
 		monochrome = true,
-		dryRun =true
-		,tags= {"@ProformaGeneration"}
+		dryRun =false
+		,tags= {"@CostEntry"}
 		)
 
 public class TestRunner {

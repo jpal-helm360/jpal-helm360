@@ -12,7 +12,7 @@ public class ProformaGenerationPage extends DriverFactory {
 	SeleniumActions sActions;
 
 	@FindBy(xpath = "//div[@class='search-button']")
-	private WebElement searchPocessBtn;
+	private WebElement searchProcessBtn;
 
 	@FindBy(xpath = "//input[@id='mat-input-1']")
 	private WebElement processNameTxtBx;
@@ -59,6 +59,7 @@ public class ProformaGenerationPage extends DriverFactory {
 		sActions = new SeleniumActions();
 	}
 
+	public void clic
 	public void openProcess(String processName) {
 		sActions.openProcess(processNameTxtBx, processName);
 	}

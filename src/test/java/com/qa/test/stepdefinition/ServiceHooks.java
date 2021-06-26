@@ -29,9 +29,9 @@ public class ServiceHooks extends com.qa.testlibrary.DriverFactory {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		sUtil.iSleep(5);
+		/*sUtil.iSleep(5);
 		new SeleniumActions().doClick(driver.findElement(By.xpath("//div[@class='search-button']")));
-		sUtil.iSleep(2);
+		sUtil.iSleep(2);*/
 	}
 
 	@After

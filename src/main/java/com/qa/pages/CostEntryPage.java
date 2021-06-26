@@ -4,17 +4,15 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import com.qa.testlibrary.DriverFactory;
 import com.qa.testlibrary.SeleniumActions;
-import com.qa.testlibrary.SeleniumWait;
 
 public class CostEntryPage extends DriverFactory {
 	
 	SeleniumActions sActions;
 
 	@FindBy(xpath = "//div[@class='search-button']")
-	private WebElement searchPocessBtn;
+	private WebElement searchProcessBtn;
 
 	@FindBy(xpath = "//input[@id='mat-input-1']")
 	private WebElement processNameTxtBx;
@@ -61,22 +59,15 @@ public class CostEntryPage extends DriverFactory {
 	}
 
 	public void clickSearchProcess() {
-		//sUtil.doClick(searchPocessBtn);
-		//sUtil.iSleep(SeleniumUtil.processBtnClick_Pre);
-		//sUtil.iSleep();
+		sActions.clickProcessSearch(searchProcessBtn);
 	}
 
 	public void openProcess(String processName) {
-		sActions.enterData(processNameTxtBx, processName);
-		//sUtil.iSleep(SeleniumUtil.enterProcessName_Post);
-		//sUtil.iSleep();
-		new SeleniumWait().iSleep(5);
-		sActions.enterThroughKeys(Keys.ENTER);
+		sActions.openProcess(processNameTxtBx, processName);
 	}
 
 	public void clickAdd() {
-		//sUtil.doClick(addBtn);
-		sActions.jsClick(addBtn);
+		sActions.doClick(addBtn);
 	}
 
 	public String getHeader() {

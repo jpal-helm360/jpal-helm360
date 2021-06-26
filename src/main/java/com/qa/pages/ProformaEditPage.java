@@ -14,9 +14,9 @@ import com.qa.testlibrary.SeleniumWait;
 public class ProformaEditPage extends DriverFactory {
 
 	SeleniumActions sActions;
-
+	
 	@FindBy(xpath = "//div[@class='search-button']")
-	private WebElement searchPocessBtn;
+	private WebElement searchProcessBtn;
 
 	@FindBy(xpath = "//input[@id='mat-input-1']")
 	private WebElement processNameTxtBx;
@@ -84,17 +84,11 @@ public class ProformaEditPage extends DriverFactory {
 	}
 
 	public void clickSearchProcess() {
-		// sUtil.doClick(searchPocessBtn);
-		// sUtil.iSleep(SeleniumUtil.processBtnClick_Pre);
-		// sUtil.iSleep();
+		sActions.clickProcessSearch(searchProcessBtn);
 	}
 
 	public void openProcess(String processName) {
-		sActions.enterData(processNameTxtBx, processName);
-		// sUtil.iSleep(SeleniumUtil.enterProcessName_Post);
-		// sUtil.iSleep();
-		new SeleniumWait().iSleep(5);
-		sActions.enterThroughKeys(Keys.ENTER);
+		sActions.openProcess(processNameTxtBx, processName);
 	}
 
 	public void searchProforma(String proforma) {
@@ -135,8 +129,6 @@ public class ProformaEditPage extends DriverFactory {
 	}
 	
 	public void selectAdjsmentType(String xpath) {
-		//sActions.jsClick(sActions.getWebelement(xpath));
-		//span[text()='Adjustment- Display on Bill']
 		sActions.jsClick(sActions.getWebelement("//span[text()='", xpath, "']"));
 	}
 
@@ -171,14 +163,14 @@ public class ProformaEditPage extends DriverFactory {
 	}
 
 	public void openInvoiceProcess() {
-		sActions.jsClick(searchPocessBtn);
+		//sActions.clickProcessSearch(searchProcessBtn);
+		sActions.jsClick(searchProcessBtn);
 		openProcess("Invoices");
 	}
 
 	public void openInvoices(String invoiceNumber) {
 		sActions.enterData(searchInvIpTxtBx, invoiceNumber);
 		sActions.enterThroughKeys(Keys.ENTER);
-		//sActions.jsClick(textbbb);
 	}
 
 	public String getInvoiceTotalAmt() {

@@ -3,9 +3,11 @@ package com.qa.test.stepdefinition;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertNotEquals;
+
+import com.qa.constant.ProformaEditQuery;
 import com.qa.dbmanager.DBUtil;
 import com.qa.pages.ProformaEditPage;
-import com.qa.query.ProformaEdit;
+
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -114,7 +116,7 @@ public class ProformaEdit_SD {
 
 	@Then("^PE: Get Invoice Number From Database$")
 	public void pe_Get_Invoice_Number_From_Database() {
-		invoiceNumber=DBUtil.get(ProformaEdit.getInvoice, 1);
+		invoiceNumber=DBUtil.get(ProformaEditQuery.getInvoice, 1);
 		System.out.println("invoiceNumber from database: =============>>>"+invoiceNumber);
 	}
 

@@ -22,47 +22,27 @@ public class SeleniumActions extends DriverFactory {
 		sWait = new SeleniumWait();
 	}
 
-	// Scroll To The Element
-	public void scrollToElement(WebElement element) {
-		// sWait.eWaitForElementToBeClickable(element);
-		sWait.eWaitForVisible(element);
-		jse.executeScript("arguments[0].scrollIntoView()", element);
-	}
-
-	/*
-	 * // Scroll To The Bottom of Page public void scrollToEndOfPage(WebElement
-	 * element) { // sWait.eWaitForElementToBeClickable(element);
-	 * sWait.eWaitForVisible(element);
-	 * jse.executeScript("arguments[0].scrollIntoView()", element); }
-	 */
-
+	// ****************************************************************************
 	// To JS Click on Element:
+	// ****************************************************************************
 	public void jsClick(WebElement element) {
 		sWait.eWaitForElementToBeClickable(element);
 		jse.executeScript("arguments[0].click();", element);
 
 	}
 
+	// ****************************************************************************
 	// To Click on Element:
+	// ****************************************************************************
+
 	public void doClick(WebElement element) {
 		sWait.eWaitForElementToBeClickable(element);
 		element.click();
 	}
 
-	// To Check Element is displayed:
-	public boolean isDisplayed(WebElement element) {
-		sWait.fluentWait(element);
-		return element.isDisplayed();
-	}
-
-	// Clear Data into TextBox
-	public void clearData(WebElement txtBx) {
-		sWait.iSleep(3);
-		txtBx.clear();
-		enterThroughKeys(Keys.ENTER);
-	}
-
-	// Enter Data into TextBox
+	// ****************************************************************************
+	// Enter Data into TextBox:
+	// ****************************************************************************
 	public void enterData(WebElement txtBx, String input) {
 		sWait.iSleep(3);
 		// sWait.eWaitForVisible(txtBx);
@@ -74,40 +54,85 @@ public class SeleniumActions extends DriverFactory {
 		}
 	}
 
-	// sendKeys through keyBoard Buttons
+	// ****************************************************************************
+	// SendKeys through keyBoard Buttons:
+	// ****************************************************************************
 
 	public void enterThroughKeys(Keys key) {
 		Actions act = new Actions(driver);
 		act.sendKeys(key).build().perform();
 	}
 
-	public void clickProcessSearch(WebElement searchBtn) {
-		doClick(searchBtn);
-		sWait.iSleep(2);
-
+	// ****************************************************************************
+	// Scroll To The Element:
+	// ****************************************************************************
+	public void scrollToElement(WebElement element) {
+		// sWait.eWaitForElementToBeClickable(element);
+		sWait.eWaitForVisible(element);
+		jse.executeScript("arguments[0].scrollIntoView()", element);
 	}
 
+	// ****************************************************************************
+	// To Check Element is displayed:
+	// ****************************************************************************
+	public boolean isDisplayed(WebElement element) {
+		sWait.fluentWait(element);
+		return element.isDisplayed();
+	}
+
+	// ****************************************************************************
+	// To Check Element is displayed:
+	// ****************************************************************************
+	public String getText(WebElement element) {
+		sWait.fluentWait(element);
+		return element.getText();
+	}
+
+	// ****************************************************************************
+	//
+	// ****************************************************************************
+	public String getAlertText() {
+		return driver.switchTo().alert().getText();
+	}
+
+	// ****************************************************************************
+	//
+	// ****************************************************************************
+	public void navigateToSubMenu(WebElement element) {
+		Actions act = new Actions(driver);
+		act.moveToElement(element).build().perform();
+	}
+
+	// ****************************************************************************
+	// Clear Data into TextBox:
+	// ****************************************************************************
+	public void clearData(WebElement txtBx) {
+		sWait.iSleep(3);
+		txtBx.clear();
+		enterThroughKeys(Keys.ENTER);
+	}
+
+	// ****************************************************************************
+	//
+	// ****************************************************************************
+	public void clickProcessSearch(WebElement searchProcessBtn) {
+		sWait.iSleep(5);
+		doClick(searchProcessBtn);
+		sWait.iSleep(2);
+	}
+
+	// ****************************************************************************
+	//
+	// ****************************************************************************
 	public void openProcess(WebElement processNameTxtBx, String processName) {
 		enterData(processNameTxtBx, processName);
 		sWait.iSleep(5);
 		enterThroughKeys(Keys.ENTER);
 	}
 
-	public String getText(WebElement element) {
-		sWait.fluentWait(element);
-		return element.getText();
-	}
-
-	public String getAlertText() {
-		return driver.switchTo().alert().getText();
-	}
-
-	public void navigateToSubMenu(WebElement element) {
-		Actions act = new Actions(driver);
-		act.moveToElement(element).build().perform();
-	}
-
-	// This Function will take screenshot and return screenshot path
+	// ****************************************************************************
+	// This Function will take screenshot and return screenshot path:
+	// ****************************************************************************
 	public static String getScreenshotPath(WebDriver driver, String scenarioName) {
 		TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
 		File source = takesScreenshot.getScreenshotAs(OutputType.FILE);
@@ -126,6 +151,9 @@ public class SeleniumActions extends DriverFactory {
 		return localScreenshotPath;
 	}
 
+	// ****************************************************************************
+	// This Function Return The WebElement:
+	// ****************************************************************************
 	public WebElement getWebelement(String firstXpath, String dynamicXpath, String lastXpath) {
 		return driver.findElement(By.xpath(firstXpath + dynamicXpath + lastXpath));
 	}
