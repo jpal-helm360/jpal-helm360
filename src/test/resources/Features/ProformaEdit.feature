@@ -6,7 +6,7 @@ Feature: PerformaEdit
   Scenario Outline: ProformaAdjustment
     Given PE: Open PerformaEdit Process
     When PE: Search and Select Proforma for "<Proforma>"
-    And PE: Extract Proforma Total Amount 
+    And PE: Extract Proforma Total Amount
     Then PE: Click On Three Dot
     Then PE: Open Apply Adjustment Child Form
     Then PE: Click On Grid-View
@@ -18,7 +18,7 @@ Feature: PerformaEdit
     Then PE: Performa Recalc
     And PE: Extract Adjusted Proforma Total Amount
     Then PE: Compare Proforma Total Amount and Invoice Total Amount Before BillNoPrint
-    Then PE: Performa BillNoPrint and Wait Few Second
+    Then PE: Performa BillNoPrint
     And PE: Get Invoice Number From Database
     Then PE: Open Invoice Process
     Then PE: Search and select Invoice Generated "<Invoice>"
@@ -27,5 +27,5 @@ Feature: PerformaEdit
     Then PE: Click on Cancel
 
     Examples: To Test ProformaAdjustment
-      | Proforma | AdjustmentAmount | AdjustmentType              | Invoice |
-      |     1059 |                3 | Adjustment- Display on Bill |  100567 |
+      | Proforma | AdjustmentAmount | AdjustmentType              |
+      |     2143 |                3 | Adjustment- Display on Bill |

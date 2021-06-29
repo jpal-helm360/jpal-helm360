@@ -3,7 +3,7 @@ package com.qa.test.runner;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import com.qa.testLib.TestDataManager;
+import com.qa.testlibrary.TestDataManager;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.testng.TestNGCucumberRunner;

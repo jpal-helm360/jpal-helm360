@@ -6,16 +6,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.qa.testLib.DriverFactory;
-import com.qa.testLib.SeleniumActions;
-import com.qa.testLib.SeleniumWait;
+import com.qa.testlibrary.DriverFactory;
+import com.qa.testlibrary.SeleniumActions;
+import com.qa.testlibrary.SeleniumWait;
 
 public class ProformaEditPage extends DriverFactory {
 
 	SeleniumActions sActions;
 
 	@FindBy(xpath = "//div[@class='search-button']")
-	private WebElement searchPocessBtn;
+	private WebElement searchProcessBtn;
 
 	@FindBy(xpath = "//input[@id='mat-input-1']")
 	private WebElement processNameTxtBx;
@@ -61,6 +61,9 @@ public class ProformaEditPage extends DriverFactory {
 
 	@FindBy(xpath = "(//e3e-process-worklist//div[@col-id='TotAmt' and @role='gridcell'])[2]")
 	private WebElement profTotalAmt;
+	
+	@FindBy(xpath = "(//e3e-process-worklist//div[@col-id='TotAmt' and @role='gridcell'])[2]")
+	private WebElement adjsProfTotalAmt;
 
 	@FindBy(xpath = "//e3e-quickfind-content//input[starts-with(@id,'mat-input-')]")
 	private WebElement searchInvIpTxtBx;
@@ -86,6 +89,7 @@ public class ProformaEditPage extends DriverFactory {
 		// sUtil.doClick(searchPocessBtn);
 		// sUtil.iSleep(SeleniumUtil.processBtnClick_Pre);
 		// sUtil.iSleep();
+		sActions.searchProcess(searchProcessBtn);
 	}
 
 	public void openProcess(String processName) {
@@ -104,6 +108,11 @@ public class ProformaEditPage extends DriverFactory {
 
 	public String getProfTotalAmount() {
 		return sActions.getText(profTotalAmt);
+	}
+	
+	public String getAdjustedProfTotalAmount() {
+		new SeleniumWait().iSleep(7);
+		return sActions.getText(adjsProfTotalAmt);
 	}
 
 	public void clickThreeDot() {
@@ -160,7 +169,7 @@ public class ProformaEditPage extends DriverFactory {
 	}
 
 	public void openInvoiceProcess() {
-		sActions.jsClick(searchPocessBtn);
+		sActions.jsClick(searchProcessBtn);
 		openProcess("Invoices");
 	}
 

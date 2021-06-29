@@ -2,7 +2,7 @@ package com.qa.test.stepDef;
 
 import static org.testng.Assert.assertEquals;
 import com.qa.pages.CostEntryPage;
-import com.qa.testLib.PropertyReader;
+import com.qa.testlibrary.PropertyReader;
 
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;

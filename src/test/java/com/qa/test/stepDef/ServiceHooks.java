@@ -3,16 +3,15 @@ package com.qa.test.stepDef;
 
 import java.io.IOException;
 import org.openqa.selenium.By;
-
-import com.qa.testLib.SeleniumActions;
-import com.qa.testLib.SeleniumWait;
-import com.qa.testLib.TestDataManager;
+import com.qa.testlibrary.SeleniumActions;
+import com.qa.testlibrary.SeleniumWait;
+import com.qa.testlibrary.TestDataManager;
 import com.vimalselvam.cucumber.listener.Reporter;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 
-public class ServiceHooks extends com.qa.testLib.DriverFactory {
+public class ServiceHooks extends com.qa.testlibrary.DriverFactory {
 
 	Scenario scenario;
 	
@@ -30,8 +29,8 @@ public class ServiceHooks extends com.qa.testLib.DriverFactory {
 			e.printStackTrace();
 		}
 		sUtil.iSleep(5);
-		new SeleniumActions().doClick(driver.findElement(By.xpath("//div[@class='search-button']")));
-		sUtil.iSleep(2);
+		//new SeleniumActions().doClick(driver.findElement(By.xpath("//div[@class='search-button']")));
+		//sUtil.iSleep(2);
 	}
 
 	@After

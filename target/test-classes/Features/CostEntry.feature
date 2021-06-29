@@ -2,7 +2,7 @@
 Feature: CostEntry
   Description: To Validate CostEntry feature
 
-  @CostEntry @Test
+  @CostEntry @Regression
   Scenario Outline: CostEntry
     Given CE: Open Process as "<Process>"
     When CE: Click On Add
@@ -16,7 +16,6 @@ Feature: CostEntry
     Then CE: Click on PostAll
     Then CE: Validate Home Page is Displayed
 
-    @CostEntry
     Examples: To Test CostEntry
       | Process    | CostType | Matter    | Timekeeper | Quantity | Currency | Rate |
       | Cost Entry | Travel   | 10164-001 |       6593 |        3 | USD      |   10 |

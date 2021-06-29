@@ -1,8 +1,10 @@
 package com.qa.test.stepDef;
 
+import static org.testng.Assert.assertNotEquals;
+
+import com.qa.constant.ProformaEditQuery;
 import com.qa.dbmanager.DBUtil;
 import com.qa.pages.ProformaEditPage;
-import com.qa.query.ProformaEdit;
 
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
@@ -93,24 +95,25 @@ public class ProformaEdit_SD {
 
 	@Then("^PE: Extract Adjusted Proforma Total Amount$")
 	public void pe_Extract_Adjusted_Proforma_Total_Amount() {
-		adjustedProfTotalAmt_ProfPage = pePage.getProfTotalAmount();
+		adjustedProfTotalAmt_ProfPage = pePage.getAdjustedProfTotalAmount();
 	}
 
 	@Then("^PE: Compare Proforma Total Amount and Invoice Total Amount Before BillNoPrint$")
 	public void pe_Compare_Proforma_Total_Amount_and_Invoice_Total_Amount_Before_BillNoPrint() {
 		System.out.println("ProfTotalAmt_ProfPage----------->>>>" + profTotalAmt_ProfPage);
 		System.out.println("adjustedProfTotalAmt_ProfPage----------->>>>" + adjustedProfTotalAmt_ProfPage);
+		assertNotEquals(profTotalAmt_ProfPage, adjustedProfTotalAmt_ProfPage, "Both Values Are Same: ");
 	}
 
-	@Then("^PE: Performa BillNoPrint and Wait Few Second$")
+	@Then("^PE: Performa BillNoPrint$")
 	public void pe_Performa_BillNoPrint() {
 		pePage.doBillNoPrint();
 	}
 
 	@Then("^PE: Get Invoice Number From Database$")
 	public void pe_Get_Invoice_Number_From_Database() {
-		invoiceNumber=DBUtil.get(ProformaEdit.getInvoice, 1);
-		System.out.println();
+		invoiceNumber=DBUtil.get(ProformaEditQuery.getInvoice, 1);
+		System.out.println("invoiceNumber: "+invoiceNumber);
 	}
 
 	@Then("^PE: Open Invoice Process$")
@@ -119,8 +122,8 @@ public class ProformaEdit_SD {
 	}
 
 	@Then("^PE: Search and select Invoice Generated \"([^\"]*)\"$")
-	public void pe_Search_and_select_Invoice_Generated(String invNumber) {
-		pePage.openInvoices(invNumber);
+	public void pe_Search_and_select_Invoice_Generated() {
+		pePage.openInvoices(invoiceNumber);
 	}
 
 	@Then("^PE: Extract Invoice Total Amount$")
