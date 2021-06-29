@@ -3,7 +3,6 @@ package com.qa.testlibrary;
 import java.time.Duration;
 import java.util.List;
 import java.util.function.Function;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
@@ -115,7 +114,7 @@ public class SeleniumWait extends DriverFactory {
 	}
 
 	// ****************************************************************************
-	// Explicit wait on element's text to be changed :
+	// Boolean true when elements is not visible anymore :
 	// ****************************************************************************
 	public void eWaitForTextToBeChanged(WebElement element) {
 		wait.until(ExpectedConditions.invisibilityOf(element));

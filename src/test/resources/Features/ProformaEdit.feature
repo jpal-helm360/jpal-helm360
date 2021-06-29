@@ -21,11 +21,11 @@ Feature: PerformaEdit
     Then PE: Performa BillNoPrint
     And PE: Get Invoice Number From Database
     Then PE: Open Invoice Process
-    Then PE: Search and select Invoice Generated "<Invoice>"
+    Then PE: Search and select Invoice Generated
     And PE: Extract Invoice Total Amount
     Then PE: Compare Proforma Total Amount and Invoice Total Amount After BillNoPrint
     Then PE: Click on Cancel
 
     Examples: To Test ProformaAdjustment
       | Proforma | AdjustmentAmount | AdjustmentType              |
-      |     2143 |                3 | Adjustment- Display on Bill |
+      |     2145 |                3 | Adjustment- Display on Bill |

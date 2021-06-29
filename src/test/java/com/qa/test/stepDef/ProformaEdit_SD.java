@@ -121,7 +121,7 @@ public class ProformaEdit_SD {
 		pePage.openInvoiceProcess();
 	}
 
-	@Then("^PE: Search and select Invoice Generated \"([^\"]*)\"$")
+	@Then("^PE: Search and select Invoice Generated$")
 	public void pe_Search_and_select_Invoice_Generated() {
 		pePage.openInvoices(invoiceNumber);
 	}
