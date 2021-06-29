@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: 3ECore
+Bundle-SymbolicName: 3ECore
+Bundle-Version: 1.0.0.qualifier
+Export-Package: com.qa.base,
+ com.qa.constantQuery,
+ com.qa.javaLib,
+ com.qa.pages,
+ com.qa.seleniumLib,
+ com.qa.test.demo,
+ com.qa.test.runner,
+ com.qa.test.stepDef.hooks,
+ com.qa.test.stepDef.pageTests
