@@ -10,11 +10,11 @@ import cucumber.api.testng.TestNGCucumberRunner;
 
 
 @CucumberOptions(features = { "src/test/resources/Features" },	
-		glue = { "com.qa.test.stepDef", "com.qa.seleniumLib","com.qa.pages" },
+		glue = { "com.qa.test.stepDef", "com.qa.testlibrary","com.qa.pages" },
 		plugin = {"com.vimalselvam.cucumber.listener.ExtentCucumberFormatter:./Report/TermiExtent.html" },
 		monochrome = true,
 		dryRun =false
-		,tags= {"@ProformaAdjustment"}
+		,tags= {"@CostEntry"}
 		)
 
 public class TestRunner {
