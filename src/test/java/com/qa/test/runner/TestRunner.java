@@ -14,7 +14,7 @@ import cucumber.api.testng.TestNGCucumberRunner;
 		plugin = {"com.vimalselvam.cucumber.listener.ExtentCucumberFormatter:./Report/TermiExtent.html" },
 		monochrome = true,
 		dryRun =false
-		,tags= {"@CostEntry"}
+		,tags= {"@Regression"}
 		)
 
 public class TestRunner {
