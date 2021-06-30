@@ -4,15 +4,17 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import com.qa.base.BaseTest;
-import com.qa.seleniumLib.SeleniumUtil;
 
-public class TimeEntryPage extends BaseTest {
+import com.qa.testlibrary.DriverFactory;
+import com.qa.testlibrary.SeleniumActions;
+import com.qa.testlibrary.SeleniumWait;
 
-	SeleniumUtil sUtil;
+public class TimeEntryPage extends DriverFactory {
+
+	SeleniumActions sActions;
 
 	@FindBy(xpath = "//div[@class='search-button']")
-	private WebElement searchPocessBtn;
+	private WebElement searchProcessBtn;
 
 	@FindBy(xpath = "//input[@id='mat-input-1']")
 	private WebElement processNameTxtBx;
@@ -46,66 +48,68 @@ public class TimeEntryPage extends BaseTest {
 	
 	@FindBy(xpath = "//span[text()='Home Page']")
 	private WebElement homeText;
-	
-	
 
 	public TimeEntryPage() {
 		PageFactory.initElements(driver, this);
-		sUtil = new SeleniumUtil();
+		sActions = new SeleniumActions();
 	}
 
 	public void clickSearchProcess() {
-		sUtil.doClick(searchPocessBtn);
-		sUtil.iSleep();
+		//sUtil.doClick(searchPocessBtn);
+		//sUtil.iSleep(SeleniumUtil.processBtnClick_Pre);
+		//sUtil.iSleep();
+		sActions.searchProcess(searchProcessBtn);
 	}
 
 	public void openProcess(String processName) {
-		sUtil.enterData(processNameTxtBx, processName);
-		sUtil.iSleep();
-		sUtil.enterThroughKeys(Keys.ENTER);
+		sActions.enterData(processNameTxtBx, processName);
+		//sUtil.iSleep(SeleniumUtil.enterProcessName_Post);
+		//sUtil.iSleep();
+		new SeleniumWait().iSleep(5);
+		sActions.enterThroughKeys(Keys.ENTER);
 	}
 
 	public void clickAdd() {
 		//sUtil.doClick(addBtn);
-		sUtil.jsClick(addBtn);
+		sActions.jsClick(addBtn);
 	}
 
 	public String getHeader() {
-		return sUtil.getText(timeEntryHeader);
+		return sActions.getText(timeEntryHeader);
 	}
 
 	public void enterTkpNumber(String tkp) {
-		sUtil.enterData(timekeeperTxtBx, tkp);
-		sUtil.enterThroughKeys(Keys.ENTER);
+		sActions.enterData(timekeeperTxtBx, tkp);
+		sActions.enterThroughKeys(Keys.ENTER);
 	}
 	
 	public void enterMatter(String maater) {
-		sUtil.enterData(matterTxtBx, maater);
-		sUtil.enterThroughKeys(Keys.ENTER);
+		sActions.enterData(matterTxtBx, maater);
+		sActions.enterThroughKeys(Keys.ENTER);
 	}
 	
 	public void enterTimeType(String timeType) {
-		sUtil.enterData(timeTypeTxtBx, timeType);
-		sUtil.enterThroughKeys(Keys.ENTER);
+		sActions.enterData(timeTypeTxtBx, timeType);
+		sActions.enterThroughKeys(Keys.ENTER);
 	}
 	
 	public void enterHours(String hours) {
-		sUtil.enterData(hoursTxtBX, hours);
-		sUtil.enterThroughKeys(Keys.ENTER);
+		sActions.enterData(hoursTxtBX, hours);
+		sActions.enterThroughKeys(Keys.ENTER);
 	}
 	
 	public void enterNarrative(String narrative) {
-		sUtil.scrollToElement(narrativeTxtBx);
-		sUtil.enterData(narrativeTxtBx, narrative);
-		sUtil.enterThroughKeys(Keys.ENTER);
+		sActions.scrollToElement(narrativeTxtBx);
+		sActions.enterData(narrativeTxtBx, narrative);
+		sActions.enterThroughKeys(Keys.ENTER);
 	}
 
 	public void ClickPostAll() {
-		sUtil.doClick(postAllBtn);
+		sActions.doClick(postAllBtn);
 	}
 	
 	public String getText() {
-		return sUtil.getText(homeText);
+		return sActions.getText(homeText);
 	}
 	
 }

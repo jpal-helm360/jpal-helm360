@@ -2,7 +2,9 @@ package com.qa.test.runner;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import com.qa.seleniumLib.TestData;
+
+import com.qa.testlibrary.TestDataManager;
+
 import cucumber.api.CucumberOptions;
 import cucumber.api.testng.TestNGCucumberRunner;
 
@@ -12,14 +14,14 @@ import cucumber.api.testng.TestNGCucumberRunner;
 		plugin = {"com.vimalselvam.cucumber.listener.ExtentCucumberFormatter:./Report/TermiExtent.html" },
 		monochrome = true,
 		dryRun =false
-		,tags= {"@CostEntry"}
+		,tags= {"@ProformaAdjustment"}
 		)
 
 public class TestRunner {
 	
 	@BeforeClass
 	public void test() {
-		System.out.println("===================>>>Execution Enviornment: "+TestData.getEnviornment());
+		System.out.println("===================>>>Execution Enviornment: "+TestDataManager.getEnviornment());
 	}
 
 	@Test

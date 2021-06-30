@@ -4,79 +4,129 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import com.qa.base.BaseTest;
-import com.qa.seleniumLib.SeleniumUtil;
 
-public class CostEntryPage extends BaseTest {
+import com.qa.testlibrary.DriverFactory;
+import com.qa.testlibrary.SeleniumActions;
+import com.qa.testlibrary.SeleniumWait;
 
-	SeleniumUtil sUtil;
+public class CostEntryPage extends DriverFactory {
+	
+	SeleniumActions sActions;
 
-	@FindBy(xpath = "//span[text()='Cost Type']//ancestor::e3e-bound-input//input")
-	private WebElement costTypeTxtBx;
+	@FindBy(xpath = "//div[@class='search-button']")
+	private WebElement searchProcessBtn;
 
+	@FindBy(xpath = "//input[@id='mat-input-1']")
+	private WebElement processNameTxtBx;
+
+	@FindBy(xpath = "//button[@id='add-title-button']")
+	private WebElement addBtn;
+
+	@FindBy(xpath = "//div[@class='e3e-dialog__title-bar-label']")
+	private WebElement processLabel;
+
+	@FindBy(xpath = "//h3[text()='Time Entry']")
+	private WebElement timeEntryHeader;
+
+	@FindBy(xpath = "//span[text()='Timekeeper']//ancestor::e3e-bound-input//input")
+	private WebElement timekeeperTxtBx;
+	
 	@FindBy(xpath = "//span[text()='Matter']//ancestor::e3e-bound-input//input")
 	private WebElement matterTxtBx;
 	
-	@FindBy(xpath = "//span[text()='Timekeeper']//ancestor::e3e-bound-input//input")
-	private WebElement timekeeperTxtBx;
-
+	@FindBy(xpath = "//span[text()='Cost Type']//ancestor::e3e-bound-input//input")
+	private WebElement costTypeTxtBx;
+	
 	@FindBy(xpath = "//span[text()='Quantity']//ancestor::e3e-bound-input//input")
 	private WebElement quantityTxtBx;
-
-	@FindBy(xpath = "//span[text()='Work Currency']//ancestor::e3e-bound-input//input")
-	private WebElement currencyTxtBx;
-
-	@FindBy(xpath = "//span[text()='Work Rate']//ancestor::e3e-bound-input//input")
-	private WebElement workRateTxtBx;
 	
-	@FindBy(xpath = "//span[text()='Narrative']//ancestor::e3e-bound-input//input")
+	@FindBy(xpath = "//span[text()='Work Currency']//ancestor::e3e-bound-input//input")
+	private WebElement workCurrecyTxtBx;
+	                   
+	@FindBy(xpath = "//span[text()='Work Rate']//ancestor::e3e-bound-input//input")
+	private WebElement workRateTxtBX;
+	
+	@FindBy(xpath = "//span[text()='Narrative']//ancestor::e3e-bound-input//div[@class='ql-editor ql-blank']")
 	private WebElement narrativeTxtBx;
-
+	
 	@FindBy(xpath = "//span[text()=' Post All ']")
 	private WebElement postAllBtn;
+	
+	@FindBy(xpath = "//span[text()='Home Page']")
+	private WebElement homeText;
 
 	public CostEntryPage() {
 		PageFactory.initElements(driver, this);
-		sUtil = new SeleniumUtil();
+		sActions = new SeleniumActions();
+	}
+
+	public void clickSearchProcess() {
+		//sUtil.doClick(searchPocessBtn);
+		//sUtil.iSleep(SeleniumUtil.processBtnClick_Pre);
+		//sUtil.iSleep();
+		sActions.searchProcess(searchProcessBtn);
+	}
+
+	public void openProcess(String processName) {
+		sActions.enterData(processNameTxtBx, processName);
+		//sUtil.iSleep(SeleniumUtil.enterProcessName_Post);
+		//sUtil.iSleep();
+		new SeleniumWait().iSleep(5);
+		sActions.enterThroughKeys(Keys.ENTER);
+	}
+
+	public void clickAdd() {
+		//sUtil.doClick(addBtn);
+		sActions.jsClick(addBtn);
+	}
+
+	public String getHeader() {
+		return sActions.getText(timeEntryHeader);
+	}
+
+	public void enterTkpNumber(String tkp) {
+		sActions.enterData(timekeeperTxtBx, tkp);
+		sActions.enterThroughKeys(Keys.ENTER);
+	}
+	
+	public void enterMatter(String maater) {
+		sActions.enterData(matterTxtBx, maater);
+		sActions.enterThroughKeys(Keys.ENTER);
 	}
 	
 	public void enterCostType(String costType) {
-		sUtil.enterData(costTypeTxtBx, costType);
-		sUtil.enterThroughKeys(Keys.ENTER);
-	}
-	
-	public void enterMatter(String matter) {
-		sUtil.enterData(matterTxtBx, matter);
-		sUtil.enterThroughKeys(Keys.ENTER);
-	}
-	
-	public void enterTimekeeper(String timekeeper) {
-		sUtil.enterData(timekeeperTxtBx, timekeeper);
-		sUtil.enterThroughKeys(Keys.ENTER);
+		sActions.enterData(costTypeTxtBx, costType);
+		sActions.enterThroughKeys(Keys.ENTER);
 	}
 	
 	public void enterQuantity(String quantity) {
-		sUtil.enterData(quantityTxtBx, quantity);
-		sUtil.enterThroughKeys(Keys.ENTER);
+		sActions.enterData(quantityTxtBx, quantity);
+		sActions.enterThroughKeys(Keys.ENTER);
 	}
 	
-	public void enterCurrency(String currency) {
-		sUtil.enterData(currencyTxtBx, currency);
-		sUtil.enterThroughKeys(Keys.ENTER);
+	public void enterWorkCurrency(String wkCurrency) {
+		sActions.scrollToElement(workCurrecyTxtBx);
+		sActions.enterData(workCurrecyTxtBx, wkCurrency);
+		sActions.enterThroughKeys(Keys.ENTER);
 	}
 	
-	public void enterWorkRate(String workRate) {
-		sUtil.enterData(workRateTxtBx, workRate);
-		sUtil.enterThroughKeys(Keys.ENTER);
+	public void enterWorkRate(String wkRate) {
+		sActions.enterData(workRateTxtBX, wkRate);
+		sActions.enterThroughKeys(Keys.ENTER);
 	}
 	
-	public void eneterNarrative(String narrative) {
-		sUtil.enterData(narrativeTxtBx, narrative);
-		sUtil.enterThroughKeys(Keys.ENTER);
+	public void enterNarrative(String narrative) {
+		sActions.scrollToElement(narrativeTxtBx);
+		sActions.enterData(narrativeTxtBx, narrative);
+		sActions.enterThroughKeys(Keys.ENTER);
+	}
+
+	public void ClickPostAll() {
+		sActions.doClick(postAllBtn);
 	}
 	
-	public void postAll() {
-		sUtil.doClick(postAllBtn);
+	public String getText() {
+		return sActions.getText(homeText);
 	}
 	
 
