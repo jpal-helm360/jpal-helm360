@@ -2,7 +2,6 @@ package com.qa.test.stepDef;
 
 
 import java.io.IOException;
-import org.openqa.selenium.By;
 import com.qa.testlibrary.SeleniumActions;
 import com.qa.testlibrary.SeleniumWait;
 import com.qa.testlibrary.TestDataManager;
@@ -29,8 +28,6 @@ public class ServiceHooks extends com.qa.testlibrary.DriverFactory {
 			e.printStackTrace();
 		}
 		sUtil.iSleep(5);
-		//new SeleniumActions().doClick(driver.findElement(By.xpath("//div[@class='search-button']")));
-		//sUtil.iSleep(2);
 	}
 
 	@After

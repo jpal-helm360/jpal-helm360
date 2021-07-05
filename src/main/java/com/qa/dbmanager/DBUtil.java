@@ -5,10 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.testng.Reporter;
 
-import com.qa.testlibrary.TestDataManager;
 
 public class DBUtil extends DBConnection {
 
@@ -23,7 +21,7 @@ public class DBUtil extends DBConnection {
 	public static List<Object> getAll(String query, int index) {
 		dataList = new ArrayList<Object>();
 		try {
-			connection = DBConnection.getConnection(TestDataManager.getEnviornment());
+			connection = DBConnection.getConnection();
 			PreparedStatement ps = connection.prepareStatement(query);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
@@ -44,7 +42,7 @@ public class DBUtil extends DBConnection {
 	public static List<Object> getAll(String query, String ip, int index) {
 		dataList = new ArrayList<Object>();
 		try {
-			connection = DBConnection.getConnection(TestDataManager.getEnviornment());
+			connection = DBConnection.getConnection();
 			PreparedStatement ps = connection.prepareStatement(query);
 			ps.setString(1, ip);
 			ResultSet rs = ps.executeQuery();
@@ -66,7 +64,7 @@ public class DBUtil extends DBConnection {
 	public static String get(String query, int index) {
 		data = null;
 		try {
-			connection = DBConnection.getConnection(TestDataManager.getEnviornment());
+			connection = DBConnection.getConnection();
 			PreparedStatement ps = connection.prepareStatement(query);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
@@ -86,7 +84,7 @@ public class DBUtil extends DBConnection {
 	public static String get(String query, String ip, int index) {
 		data = null;
 		try {
-			connection = DBConnection.getConnection(TestDataManager.getEnviornment());
+			connection = DBConnection.getConnection();
 			PreparedStatement ps = connection.prepareStatement(query);
 			ps.setString(1, ip);
 			ResultSet rs = ps.executeQuery();

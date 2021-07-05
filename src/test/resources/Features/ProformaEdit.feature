@@ -28,4 +28,4 @@ Feature: PerformaEdit
 
     Examples: To Test ProformaAdjustment
       | Proforma | AdjustmentAmount | AdjustmentType              |
-      |     2145 |                3 | Adjustment- Display on Bill |
+      |     2147 |                3 | Adjustment- Display on Bill |

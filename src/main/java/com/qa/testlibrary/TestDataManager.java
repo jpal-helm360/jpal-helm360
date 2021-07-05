@@ -1,6 +1,5 @@
 package com.qa.testlibrary;
 
-
 public class TestDataManager {
 
 	public static String getEnviornment() {
@@ -37,5 +36,34 @@ public class TestDataManager {
 		return "http://192.168.1.195:8080/job/" + System.getProperty("Project") + "/ws/Screenshots/";
 	}
 
-	
+	public static String getDBUrl() {
+		if (getEnviornment().equals("stage")) {
+			return PropertyReader.readProperty("dbURL_Stage");
+		} else if (getEnviornment().equals("prod")) {
+			return null;
+		} else {
+			return null;
+		}
+	}
+
+	public static String getDBUser() {
+		if (getEnviornment().equals("stage")) {
+			return PropertyReader.readProperty("dbUser_Stage");
+		} else if (getEnviornment().equals("prod")) {
+			return null;
+		} else {
+			return null;
+		}
+	}
+
+	public static String getDBPassword() {
+		if (getEnviornment().equals("stage")) {
+			return PropertyReader.readProperty("dbPwd_Stage");
+		} else if (getEnviornment().equals("prod")) {
+			return null;
+		} else {
+			return null;
+		}
+	}
+
 }

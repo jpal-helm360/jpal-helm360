@@ -61,9 +61,7 @@ public class CostEntryPage extends DriverFactory {
 	}
 
 	public void clickSearchProcess() {
-		//sUtil.doClick(searchPocessBtn);
-		//sUtil.iSleep(SeleniumUtil.processBtnClick_Pre);
-		//sUtil.iSleep();
+
 		sActions.searchProcess(searchProcessBtn);
 	}
 
