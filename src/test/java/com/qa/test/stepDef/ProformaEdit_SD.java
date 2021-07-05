@@ -45,7 +45,6 @@ public class ProformaEdit_SD {
 	@When("^PE: Extract Proforma Total Amount$")
 	public void pe_Extract_Proforma_Total_Amount() {
 		profTotalAmt_ProfPage = pePage.getProfTotalAmount();
-		System.out.println("Total Proforma Amouunt------------------------->>>" + profTotalAmt_ProfPage);
 	}
 
 	@Then("^PE: Click On Three Dot$")
@@ -100,8 +99,6 @@ public class ProformaEdit_SD {
 
 	@Then("^PE: Compare Proforma Total Amount and Invoice Total Amount Before BillNoPrint$")
 	public void pe_Compare_Proforma_Total_Amount_and_Invoice_Total_Amount_Before_BillNoPrint() {
-		System.out.println("ProfTotalAmt_ProfPage----------->>>>" + profTotalAmt_ProfPage);
-		System.out.println("adjustedProfTotalAmt_ProfPage----------->>>>" + adjustedProfTotalAmt_ProfPage);
 		assertNotEquals(profTotalAmt_ProfPage, adjustedProfTotalAmt_ProfPage, "Both Values Are Same: ");
 	}
 

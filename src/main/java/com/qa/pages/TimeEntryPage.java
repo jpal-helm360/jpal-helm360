@@ -4,10 +4,9 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import com.qa.testlibrary.DriverFactory;
 import com.qa.testlibrary.SeleniumActions;
-import com.qa.testlibrary.SeleniumWait;
+
 
 public class TimeEntryPage extends DriverFactory {
 
@@ -55,22 +54,14 @@ public class TimeEntryPage extends DriverFactory {
 	}
 
 	public void clickSearchProcess() {
-		//sUtil.doClick(searchPocessBtn);
-		//sUtil.iSleep(SeleniumUtil.processBtnClick_Pre);
-		//sUtil.iSleep();
 		sActions.searchProcess(searchProcessBtn);
 	}
 
 	public void openProcess(String processName) {
-		sActions.enterData(processNameTxtBx, processName);
-		//sUtil.iSleep(SeleniumUtil.enterProcessName_Post);
-		//sUtil.iSleep();
-		new SeleniumWait().iSleep(5);
-		sActions.enterThroughKeys(Keys.ENTER);
+		sActions.openProcess(processNameTxtBx, processName);
 	}
 
 	public void clickAdd() {
-		//sUtil.doClick(addBtn);
 		sActions.jsClick(addBtn);
 	}
 
@@ -108,7 +99,7 @@ public class TimeEntryPage extends DriverFactory {
 		sActions.doClick(postAllBtn);
 	}
 	
-	public String getText() {
+	public String getHomePageText() {
 		return sActions.getText(homeText);
 	}
 	

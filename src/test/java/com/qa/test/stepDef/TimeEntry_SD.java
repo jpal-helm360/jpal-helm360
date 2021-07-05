@@ -3,7 +3,6 @@ package com.qa.test.stepDef;
 import static org.testng.Assert.assertEquals;
 import com.qa.pages.TimeEntryPage;
 import com.qa.testlibrary.PropertyReader;
-
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -11,15 +10,14 @@ import cucumber.api.java.en.When;
 
 public class TimeEntry_SD {
 
-	TimeEntryPage tePage;
+	private static TimeEntryPage tePage;
 
 	public TimeEntry_SD() {
-		new ServiceHooks();
+		tePage=new TimeEntryPage();
 	}
 
 	@Before(order = 1, value = "@TimeEntry")
-	public void setUp() {
-		tePage=new TimeEntryPage();
+	public void setUp() {		
 		tePage.clickSearchProcess();
 	}
 
@@ -66,8 +64,7 @@ public class TimeEntry_SD {
 	@Then("^Validate Home Page is Displayed$")
 	public void validate_Home_Page_is_Displayed() {
 		String homePageText=PropertyReader.readProperty("homePageText");
-		assertEquals(homePageText, tePage.getText(),"Home Page Not Matched");
-		
+		assertEquals(homePageText, tePage.getHomePageText(),"Home Page Not Matched");
 	}
 
 }

@@ -57,8 +57,8 @@ public class SeleniumActions extends DriverFactory {
 
 	// Enter Data into TextBox
 	public void enterData(WebElement txtBx, String input) {
+		sWait.eWaitForJSLoad();
 		sWait.iSleep(3);
-		// sWait.eWaitForVisible(txtBx);
 		if (txtBx.getAttribute("value") != null) {
 			txtBx.clear();
 			txtBx.sendKeys(input);
@@ -68,7 +68,6 @@ public class SeleniumActions extends DriverFactory {
 	}
 
 	// sendKeys through keyBoard Buttons
-
 	public void enterThroughKeys(Keys key) {
 		Actions act = new Actions(driver);
 		act.sendKeys(key).build().perform();
@@ -112,8 +111,16 @@ public class SeleniumActions extends DriverFactory {
 	}
 	
 	public void searchProcess(WebElement searchProcessBtn) {
+		sWait.eWaitForJSLoad();
+		sWait.eWaitForVisible(searchProcessBtn);
 		doClick(searchProcessBtn);
-		sWait.iSleep(2);
+		sWait.iSleep(1);
+	}
+	
+	public void openProcess(WebElement processNameTxtBx,String processName) {
+		enterData(processNameTxtBx, processName);
+		sWait.iSleep(1);
+		enterThroughKeys(Keys.ENTER);
 	}
 
 }

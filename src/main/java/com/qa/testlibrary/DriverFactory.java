@@ -25,16 +25,5 @@ public class DriverFactory {
 		
 		return driver;
 	}
-		
-	/*public void doLogin() {
-		driver=getDriver();
-		driver.get(TestData.getURL());
-		try {
-			Thread.sleep(7000);
-			Runtime.getRuntime().exec(System.getProperty("user.dir") + "/src/test/resources/Autoit/3EAuthencation.exe");
-		} catch (IOException | InterruptedException e) {
-			e.printStackTrace();
-		}
-	}*/
 	
 }

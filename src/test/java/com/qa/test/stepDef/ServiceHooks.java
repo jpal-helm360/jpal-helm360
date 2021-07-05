@@ -2,7 +2,6 @@ package com.qa.test.stepDef;
 
 
 import java.io.IOException;
-import org.openqa.selenium.By;
 import com.qa.testlibrary.SeleniumActions;
 import com.qa.testlibrary.SeleniumWait;
 import com.qa.testlibrary.TestDataManager;
@@ -22,15 +21,13 @@ public class ServiceHooks extends com.qa.testlibrary.DriverFactory {
 		driver=getDriver();
 		driver.get(TestDataManager.getURL());
 		SeleniumWait sUtil=new SeleniumWait();
-		sUtil.iSleep(7);
+		sUtil.iSleep(5);
 		try {
 			Runtime.getRuntime().exec(System.getProperty("user.dir") + "/src/test/resources/Autoit/3EAuthencation.exe");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		sUtil.iSleep(5);
-		//new SeleniumActions().doClick(driver.findElement(By.xpath("//div[@class='search-button']")));
-		//sUtil.iSleep(2);
+		sUtil.iSleep(2);
 	}
 
 	@After
@@ -56,6 +53,6 @@ public class ServiceHooks extends com.qa.testlibrary.DriverFactory {
 		Reporter.setSystemInfo("Java-Version", "1.8.0_151");
 		Reporter.setSystemInfo("URL", TestDataManager.getURL());
 		Reporter.getExtentReport();
-		//driver.quit();
+		driver.quit();
 	}
 }

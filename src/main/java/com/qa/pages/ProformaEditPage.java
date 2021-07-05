@@ -86,18 +86,11 @@ public class ProformaEditPage extends DriverFactory {
 	}
 
 	public void clickSearchProcess() {
-		// sUtil.doClick(searchPocessBtn);
-		// sUtil.iSleep(SeleniumUtil.processBtnClick_Pre);
-		// sUtil.iSleep();
 		sActions.searchProcess(searchProcessBtn);
 	}
 
 	public void openProcess(String processName) {
-		sActions.enterData(processNameTxtBx, processName);
-		// sUtil.iSleep(SeleniumUtil.enterProcessName_Post);
-		// sUtil.iSleep();
-		new SeleniumWait().iSleep(5);
-		sActions.enterThroughKeys(Keys.ENTER);
+		sActions.openProcess(processNameTxtBx, processName);
 	}
 
 	public void searchProforma(String proforma) {
@@ -143,14 +136,11 @@ public class ProformaEditPage extends DriverFactory {
 	}
 	
 	public void selectAdjsmentType(String xpath) {
-		//sActions.jsClick(sActions.getWebelement(xpath));
-		//span[text()='Adjustment- Display on Bill']
 		sActions.jsClick(sActions.getWebelement("//span[text()='", xpath, "']"));
 	}
 
 	public void navigateToRecalc() {
 		for (int i = 0; i <= 3; i++) {
-			System.out.println("navigateToRecalc:-------------------------->>>"+i);
 			sActions.jsClick(toolbarBtn);
 		}
 	}
@@ -161,7 +151,7 @@ public class ProformaEditPage extends DriverFactory {
 
 	public void doBillNoPrint() {
 		sActions.jsClick(billNoPrintBtn);
-		new SeleniumWait().iSleep(5);
+		new SeleniumWait().iSleep(7);
 	}
 
 	public String getText() {
@@ -176,7 +166,6 @@ public class ProformaEditPage extends DriverFactory {
 	public void openInvoices(String invoiceNumber) {
 		sActions.enterData(searchInvIpTxtBx, invoiceNumber);
 		sActions.enterThroughKeys(Keys.ENTER);
-		//sActions.jsClick(textbbb);
 	}
 
 	public String getInvoiceTotalAmt() {

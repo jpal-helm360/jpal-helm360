@@ -11,15 +11,14 @@ import cucumber.api.java.en.When;
 
 public class CostEntry_SD {
 
-	CostEntryPage cePage;
+	private static CostEntryPage cePage;
 
 	public CostEntry_SD() {
-		new ServiceHooks();
+		cePage = new CostEntryPage();
 	}
 
 	@Before(order = 1, value = "@CostEntry")
-	public void setUp() {
-		cePage = new CostEntryPage();
+	public void setUp() {	
 		cePage.clickSearchProcess();
 	}
 
@@ -76,7 +75,7 @@ public class CostEntry_SD {
 	@Then("^CE: Validate Home Page is Displayed$")
 	public void ce_Validate_Home_Page_is_Displayed() {
 		String actualHomePageText=PropertyReader.readProperty("homePageText");
-		assertEquals(actualHomePageText, cePage.getText(),"Home Page Text Not Verified");
+		assertEquals(actualHomePageText, cePage.getHomePageText(),"Home Page Text Not Verified");
 	}
 
 }
