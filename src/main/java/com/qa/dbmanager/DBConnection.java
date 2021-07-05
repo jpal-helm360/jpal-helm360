@@ -21,7 +21,7 @@ public class DBConnection {
 			password = DBConstant.dbPwd_Prod;
 		}
 
-		// 1.To Get Staging Database Connection :
+		// 2.To Get Staging Database Connection :
 		else if (environment.equalsIgnoreCase("stage")) {
 			dbURL = DBConstant.dbURL_Stage;
 			userName = DBConstant.dbUser_Stage;

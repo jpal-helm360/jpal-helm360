@@ -58,7 +58,7 @@
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>Jun 29, 2021 06:11:49 PM</span>
+                    <span class='label suite-start-time blue darken-3'>Jul 4, 2021 07:15:54 PM</span>
 				</a>
 			</li>
 			<li>
@@ -96,7 +96,7 @@
 					<i class='material-icons'>local_offer</i> Category
 				</a>
 				<ul id='category-toggle' class='dropdown-content'>
-					<li><a href='#'>@CostEntry</a></li>
+					<li><a href='#'>@TimeEntry</a></li>
 					<li><a href='#'>@Regression</a></li>
 					<li><a href='#'>@Test</a></li>
 					<li class='divider'></li>
@@ -176,7 +176,7 @@
 					<canvas id='grandchild-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>11</span> step(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>9</span> step(s) passed</span>
 				</div>
 				<div class='block text-small'>
 					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
@@ -195,72 +195,64 @@
 				
 				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='1'>
 					<div class='test-heading'>
-						<span class='test-name'>CostEntry</span>
-						<span class='test-time'>Jun 29, 2021 06:11:49 PM</span>
+						<span class='test-name'>TimeEntry</span>
+						<span class='test-time'>Jul 4, 2021 07:15:54 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='scenariooutline node' test-id='2' status='pass'>
-	<span class='duration right label'>0h 1m 17s+415ms</span>
+	<span class='duration right label'>0h 1m 7s+703ms</span>
 	<div class='desc'>
 		<b>ScenarioOutline</b>
-		<span class="desc-text">CostEntry</span>
+		<span class="desc-text">TimeEntry</span>
 	</div>
 	<ul class='steps'>
 		<li test-id='3' class='node scenario pass' status='pass'>
 			<div class='category-list'>
-				<span class='category label white-text'>@CostEntry</span>
 				<span class='category label white-text'>@Regression</span>
+				<span class='category label white-text'>@TimeEntry</span>
 				<span class='category label white-text'>@Test</span>
 			</div>
 			
 			<b>Scenario</b>
 			
-			<span class="bdd-step-name">CostEntry</span>
+			<span class="bdd-step-name">TimeEntry</span>
 			
 				<ul class='steps'>
 					<li test-id='4' class='node given pass' status='pass'><b>Given</b>
-						<span class="bdd-step-name">Given CE: Open Process as "Cost Entry"</span>
+						<span class="bdd-step-name">Given Open Time Entry Process</span>
 							<div class='pre'>passed</div>
 					</li>
 					<li test-id='5' class='node when pass' status='pass'><b>When</b>
-						<span class="bdd-step-name">When CE: Click On Add</span>
+						<span class="bdd-step-name">When Click On Add</span>
 							<div class='pre'>passed</div>
 					</li>
 					<li test-id='6' class='node then pass' status='pass'><b>Then</b>
-						<span class="bdd-step-name">Then CE: Enter Cost Type "Travel"</span>
+						<span class="bdd-step-name">Then Enter Timekeeper Number as "6593"</span>
 							<div class='pre'>passed</div>
 					</li>
 					<li test-id='7' class='node then pass' status='pass'><b>Then</b>
-						<span class="bdd-step-name">Then CE: Enter Matter Number as "10164-001"</span>
+						<span class="bdd-step-name">Then Enter Matter Number as "10164-001"</span>
 							<div class='pre'>passed</div>
 					</li>
 					<li test-id='8' class='node then pass' status='pass'><b>Then</b>
-						<span class="bdd-step-name">Then CE: Enter Timekeeper Number as "6593"</span>
+						<span class="bdd-step-name">Then Select Time Type as "Hourly"</span>
 							<div class='pre'>passed</div>
 					</li>
 					<li test-id='9' class='node then pass' status='pass'><b>Then</b>
-						<span class="bdd-step-name">Then CE: Enter Quantity as "3"</span>
+						<span class="bdd-step-name">Then Enter Hours as "0.15"</span>
 							<div class='pre'>passed</div>
 					</li>
 					<li test-id='10' class='node then pass' status='pass'><b>Then</b>
-						<span class="bdd-step-name">Then CE: Enter Work Currency as "USD"</span>
+						<span class="bdd-step-name">Then Enter Narrative as "Perf-Ui-Test"</span>
 							<div class='pre'>passed</div>
 					</li>
 					<li test-id='11' class='node then pass' status='pass'><b>Then</b>
-						<span class="bdd-step-name">Then CE: Enter Work Rate as "10"</span>
+						<span class="bdd-step-name">Then Click on PostAll</span>
 							<div class='pre'>passed</div>
 					</li>
 					<li test-id='12' class='node then pass' status='pass'><b>Then</b>
-						<span class="bdd-step-name">Then CE: Enter Narrative as "Narrative"</span>
-							<div class='pre'>passed</div>
-					</li>
-					<li test-id='13' class='node then pass' status='pass'><b>Then</b>
-						<span class="bdd-step-name">Then CE: Click on PostAll</span>
-							<div class='pre'>passed</div>
-					</li>
-					<li test-id='14' class='node then pass' status='pass'><b>Then</b>
-						<span class="bdd-step-name">Then CE: Validate Home Page is Displayed</span>
+						<span class="bdd-step-name">Then Validate Home Page is Displayed</span>
 							<div class='pre'>passed</div>
 					</li>
 				</ul>
@@ -321,7 +313,7 @@
 				
 				<li class='category displayed active'>
 					<div class='category-heading'>
-						<span class='category-name'>@CostEntry</span>
+						<span class='category-name'>@TimeEntry</span>
 						<span class='category-status right'>
 							<span class='label pass'>2</span>
 						</span>
@@ -344,13 +336,13 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>Jun 29, 2021 06:11:49 PM</td>
-										<td class='linked' test-id='1'>CostEntry</td>
+										<td>Jul 4, 2021 07:15:54 PM</td>
+										<td class='linked' test-id='1'>TimeEntry</td>
 										<td><span class='test-status pass'>pass</span></td>
 									</tr>
 									<tr>
-										<td>Jun 29, 2021 06:11:49 PM</td>
-										<td class='linked' test-id='3'>CostEntry.CostEntry.CostEntry</td>
+										<td>Jul 4, 2021 07:15:54 PM</td>
+										<td class='linked' test-id='3'>TimeEntry.TimeEntry.TimeEntry</td>
 										<td><span class='test-status pass'>pass</span></td>
 									</tr>
 								</tbody>
@@ -383,8 +375,8 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>Jun 29, 2021 06:11:49 PM</td>
-										<td class='linked' test-id='3'>CostEntry.CostEntry.CostEntry</td>
+										<td>Jul 4, 2021 07:15:54 PM</td>
+										<td class='linked' test-id='3'>TimeEntry.TimeEntry.TimeEntry</td>
 										<td><span class='test-status pass'>pass</span></td>
 									</tr>
 								</tbody>
@@ -417,8 +409,8 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>Jun 29, 2021 06:11:49 PM</td>
-										<td class='linked' test-id='3'>CostEntry.CostEntry.CostEntry</td>
+										<td>Jul 4, 2021 07:15:54 PM</td>
+										<td class='linked' test-id='3'>TimeEntry.TimeEntry.TimeEntry</td>
 										<td><span class='test-status pass'>pass</span></td>
 									</tr>
 								</tbody>
@@ -487,8 +479,8 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>Jun 29, 2021 06:11:49 PM</td>
-                                                <td class='linked' test-id='3'>CostEntry.CostEntry.CostEntry</td>
+                                                <td>Jul 4, 2021 07:15:54 PM</td>
+                                                <td class='linked' test-id='3'>TimeEntry.TimeEntry.TimeEntry</td>
                                                 <td><span class='test-status pass'>pass</span></td>
                                             </tr>
                                         </tbody>
@@ -528,25 +520,25 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>11</div>
+					<div class='panel-lead'>9</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Jun 29, 2021 06:11:49 PM</div>
+					<div class='panel-lead'>Jul 4, 2021 07:15:54 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Jun 29, 2021 06:13:07 PM</div>
+			 		<div class='panel-lead'>Jul 4, 2021 07:17:02 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>0h 1m 17s+679ms</div>
+					<div class='panel-lead'>0h 1m 7s+922ms</div>
 				</div>
 			</div>
 			<div class='col s4'>
@@ -606,7 +598,7 @@
 							<th>Passed %</th>
 						</tr>
 						<tr>
-							<td>@CostEntry</td>
+							<td>@TimeEntry</td>
 							<td>2</td>
 							<td>0</td>
 							<td>0</td>
@@ -662,7 +654,7 @@
 				infoChild: 0,
 				exceptionsChild: 0,
 				
-				passGrandChild: 11,
+				passGrandChild: 9,
 				failGrandChild: 0,
 				fatalGrandChild: 0,
 				errorGrandChild: 0,

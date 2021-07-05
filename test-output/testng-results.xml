@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="79834" started-at="2021-06-30T01:11:48Z" finished-at="2021-06-30T01:13:07Z">
+  <suite name="Default suite" duration-ms="69697" started-at="2021-07-05T02:15:53Z" finished-at="2021-07-05T02:17:02Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="79834" started-at="2021-06-30T01:11:48Z" finished-at="2021-06-30T01:13:07Z">
+    <test name="Default test" duration-ms="69697" started-at="2021-07-05T02:15:53Z" finished-at="2021-07-05T02:17:02Z">
       <class name="com.qa.test.runner.TestRunner">
-        <test-method status="PASS" signature="test()[pri:0, instance:com.qa.test.runner.TestRunner@59ec2012]" name="test" is-config="true" duration-ms="47" started-at="2021-06-30T01:11:48Z" finished-at="2021-06-30T01:11:48Z">
+        <test-method status="PASS" signature="test()[pri:0, instance:com.qa.test.runner.TestRunner@59ec2012]" name="test" is-config="true" duration-ms="35" started-at="2021-07-05T02:15:53Z" finished-at="2021-07-05T02:15:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test -->
-        <test-method status="PASS" signature="runCukes()[pri:0, instance:com.qa.test.runner.TestRunner@59ec2012]" name="runCukes" duration-ms="79742" started-at="2021-06-30T01:11:48Z" finished-at="2021-06-30T01:13:07Z">
+        <test-method status="PASS" signature="runCukes()[pri:0, instance:com.qa.test.runner.TestRunner@59ec2012]" name="runCukes" duration-ms="69606" started-at="2021-07-05T02:15:53Z" finished-at="2021-07-05T02:17:02Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runCukes -->
